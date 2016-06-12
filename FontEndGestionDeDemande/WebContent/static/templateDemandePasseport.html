@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<title>Bootsrtap For Beginners</title>
+<meta name="description" content="Hello World">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="css/styleConnecter.css">
+
+
+
+</head>
+
+<body>
+
+
+
+	<header>
+
+		<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#example">
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+				</div>
+				<div class="collpase navbar-collapse" id="button">
+					<a type="button" class=" pull-right btn btn-info"
+						href="template.html">Déconnecter <span
+						class="glyphicon glyphicon-log-out"></span></a> <a type="button"
+						class=" pull-right btn btn-info" href="connexion.html">Gerer
+						compte <span class="glyphicon glyphicon-cog"></span>
+					</a>
+					<h4 class=" pull-right">Bonjour Nom Prenom</h4>
+					<img src="images/logo.jpg" class="img-circle " alt="Cinque Terre">
+				</div>
+			</div>
+		</div>
+		<h2>
+			Bienvenu sur le site de gestion des demandes<br> Administratives
+		</h2>
+	</header>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-1"></div>
+			<div class="col-md-10">
+
+				<form>
+					<fieldset>
+						<legend class="legendCSS">Vous êtes ?</legend>
+						<ul>
+							<li><h3><input class="btn btn-success" name="radioGroup" id="radio1" value="option1"
+								type="radio">  Majour <br></h3></li>
+								<li><h3><input name="radioGroup" id="radio1" value="option1"
+								type="radio">     Mineur</h3> <br></li>
+							
+						</ul>
+						
+					</fieldset>
+				</form>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<div class="container">
+							<div class="row">
+								<div class="btn-group btn-breadcrumb">
+									<a href="templateConnecterAccueil.html" class="btn btn-info"><i
+										class="glyphicon glyphicon-home"></i></a> <a
+										href="templateConnecterAccueil.html" class="btn btn-info">demandes
+										Administrative</a> <a href="" class="btn btn-info">Demande
+										d'un nouveau passeport</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="panel-body">
+						<form class="form-horizontal">
+							<div class="form-group">
+								<label for="inputfirstname" class="col-lg-2 control-label">
+									Nom</label>
+								<div class="col-lg-8">
+									<input type="text" class="form-control" id="inputfirstname"
+										placeholder="Enter Votre Nom" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputlastname" class="col-lg-2 control-label">
+									Prénom</label>
+								<div class="col-lg-8">
+									<input type="text" class="form-control" id="inputlastname"
+										placeholder="Enter Votre Prenom " />
+								</div>
+							</div>
+
+
+							<div class="form-group">
+								<label for="inputdateofbirth" class="col-lg-2 control-label">
+									Date de naissance</label>
+								<div class="col-lg-8">
+									<div class="row">
+										<div class="col-lg-5">
+											<select class="form-control" name="">
+												<option value="">January</option>
+												<option value="">February</option>
+												<option value="">March</option>
+												<option value="">April</option>
+												<option selected value="">May</option>
+											</select>
+										</div>
+										<div class="col-lg-3">
+											<select name="" class="form-control">
+												<option selected value="">1</option>
+												<option value="">2</option>
+												<option value="">3</option>
+												<option value="">4</option>
+												<option value="">5</option>
+												<option value="">6</option>
+												<option value="">7</option>
+												<option value="">8</option>
+												<option value="">9</option>
+												<option value="">10</option>
+												<option value="">11</option>
+												<option value="">12</option>
+											</select>
+										</div>
+										<div class="col-lg-4">
+											<select name="" class="form-control">
+												<option selected value="">1990</option>
+												<option value="">1991</option>
+												<option value="">1992</option>
+												<option value="">1993</option>
+												<option value="">1994</option>
+												<option value="">1980</option>
+												<option value="">1981</option>
+												<option value="">1982</option>
+												<option value="">1983</option>
+												<option value="">1984</option>
+												<option value="">1985</option>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputscreenname" class="col-lg-2 control-label">
+									Sex</label>
+
+								<div class="col-lg-6">
+									<label> <input type="radio" class="radioCss"
+										name="gender"> Femme
+									</label> <label> <input type="radio" name="gender">
+										Homme
+									</label>
+
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="inputemail" class="col-lg-2 control-label">
+									Tél</label>
+								<div class="col-lg-8">
+									<input type="text" class="form-control" id="inputemail"
+										placeholder="Enter votre numéro"></input>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label for="inputphone" class="col-lg-2 control-label">
+									E-mail </label>
+								<div class="col-lg-8">
+									<input type="email" class="form-control" id="inputphone"
+										placeholder="Enter E-mail"></input>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputpassword" class="col-lg-2 control-label">
+									Mot de passe</label>
+								<div class="col-lg-8">
+									<input type="password" name="" class="form-control" value=""
+										placeholder="Enter Mot de passe">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputconfirmpassword" class="col-lg-2 control-label">
+									Confirmer </label>
+								<div class="col-lg-8">
+									<input type="password" name="" class="form-control" value=""
+										placeholder="Confirmer mot de passe">
+								</div>
+							</div>
+
+							<div class=”form-group”>
+
+								<div>
+									<div>
+										<label for="inputscreenname" class="col-md-1 "></label> <label
+											class="col-md-10"> <input type="checkbox"
+											class="col-md-1">J'accepte les conditions générales
+											d'utilisation
+										</label>
+									</div>
+								</div>
+							</div>
+
+
+
+						</form>
+					</div>
+					<div class="panel-footer">
+						<div class="form-group">
+							<div class="espaceMarginA">
+								<input type="submit" name="valider" value="Valider"
+									class=" btn-primary btn btn-default "> <a
+									href="template.html"> Cancel </a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+	<!-- Latest compiled and minified JavaScript -->
+
+
+
+
+</body>
+</html>

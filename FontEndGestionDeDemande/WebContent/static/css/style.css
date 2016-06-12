@@ -1,0 +1,105 @@
+@CHARSET "ISO-8859-1";
+
+.navbar {
+	background-image: linear-gradient(#54B4EB, #2FA4E7 60%, #1D9CE5);
+	background-repeat: no-repeat;
+	border-bottom: 1px solid #178ACC;
+	box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
+	border-radius: 0px;
+	width: 100%;
+	min-height: 70px;
+}
+
+.divMargin {
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+.btn-primary {
+	height: 70px;
+	color: #fff;
+	font-size: 22px;
+	font-weight: 300;
+}
+
+.dropdown-menu {
+	width: 100%;
+}
+
+.navbar-input-group {
+  font-size: 0px; /*removes whitespace between button and input*/
+}
+.ligneCenter{
+	text-align: center;
+	padding-top: 20px;
+}
+.navbar-center
+{
+   position: absolute;
+   width: 100%;
+   left: 0;
+   text-align: center;
+   margin: 10px;
+}
+.navbar-input-group input {
+	weight: 3000;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+.navbar-input-group .btn {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-left: 0px;
+}
+form {
+	display: inline;
+}
+
+.dropdown-item {
+	margin-left: 10px;
+}
+
+.img-circle {
+	width: 50px;
+	height: 50px;
+	padding-bottom: 0px;
+}
+
+.pull-right {
+	padding-top: 0px;
+}
+
+.jumbotron {
+	width: 100%;
+	padding-top: 30px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	height: 200px;
+	background-color: #ffffff;
+}
+
+h2 {
+	padding-top: 0px;
+	text-align: center;
+	color: #0000ff;
+	font-size: 22px;
+	font-weight: 300;
+	font-family: "times new roman", times, serif;
+	font-weight: 300;
+}
+
+.dropdown-menu .dropdown-item-petit-ecran {
+	color: #fff;
+	font-size: 15px;
+	font-family: "times new roman", times, serif;
+	font-weight: 150;
+}
+
+.collpase .nav>li>a {
+	height: 40px;
+	color: #fff;
+	font-size: 22px;
+	font-weight: 300;
+	font-family: "times new roman", times, serif;
+	font-weight: 300;
+}

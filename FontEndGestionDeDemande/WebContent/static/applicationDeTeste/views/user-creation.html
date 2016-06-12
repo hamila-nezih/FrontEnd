@@ -1,0 +1,46 @@
+<div class="container">
+<div class="well">
+	<h1>Create a new user</h1>
+
+	<form name="createUserForm"
+		ng-submit="createUserForm.$valid && createNewUser()" novalidate>
+		<div class="control-group">
+			<label class="control-label" for="libelle">Libelle :</label> <input
+				type="text" name="libelle" id="libelle" ng-model="user.libelle"
+				placeholder="libelle" required ng-minlength="6" ng-maxlength="10" />
+
+			<div class="field-message"
+				ng-messages="createUserForm.libelle.$error"
+				ng-if='createUserForm.$submitted' ng-cloak>
+				<div ng-message="minlength">{{msg.msgTailleMin}}</div>
+				<div ng-message="maxlength">{{msg.msgTailleMax}}</div>
+				<div ng-message="required">{{msg.msgRequired}}</div>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">Nom :</label> <input type="text"
+				id="nom" name="nom" ng-model="user.nom" placeholder="nom" required
+				ng-maxlength="30" />
+			<div class="field-message" ng-messages="createUserForm.nom.$error"
+				ng-if='createUserForm.$submitted' ng-cloak>
+				<div ng-message="minlength">{{msg.msgTailleMin}}</div>
+				<div ng-message="maxlength">{{msg.msgTailleMax}}</div>
+				<div ng-message="required">{{msg.msgRequired}}</div>
+			</div>
+		</div>
+		<div class="control-group">
+			<label class="control-label">Prenom :</label> <input type="text"
+				id="prenom" name="prenom" ng-model="user.prenom"
+				placeholder="prenom" required ng-maxlength="30" />
+			<div class="field-message" ng-messages="createUserForm.prenom.$error"
+				ng-if='createUserForm.$submitted' ng-cloak>
+				<div ng-message="minlength">{{msg.msgTailleMin}}</div>
+				<div ng-message="maxlength">{{msg.msgTailleMax}}</div>
+				<div ng-message="required">{{msg.msgRequired}}</div>
+			</div>
+		</div>
+		<input class="control-button" type="submit" value="Envoyer" />
+
+	</form>
+</div>
+</div>

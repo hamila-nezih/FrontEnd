@@ -1,0 +1,23 @@
+<div>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th style="min-width: 80px;">First name</th>
+				<th style="min-width: 80px;">Last name</th>
+				<th style="width: 20px;">&nbsp;</th>
+				<th style="width: 20px;">&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="user in users">
+				<td>{{ user.nom}}</td>
+				<td>{{ user.prenom }}</td>
+				<td><a ng-click="editUser(user.id)">edit&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				</a></td>
+				<td><a ng-click="deleteUser(user.id)">
+						&nbsp;&nbsp;&nbsp;delete </a></td>
+			</tr>
+		</tbody>
+	</table>
+	<a ng-click="createNewUser()">create new user</a>
+</div>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+
+<form ng-submit="envoyerUpload()"  enctype="multipart/form-data" novalidate >
+     <label for="icone">Icône du fichier (JPG, PNG ou GIF | max. 15 Ko) :</label><br />
+     <input  type="hidden" name="MAX_FILE_SIZE" value="100000" />
+     <input type="file" name="icone" id="icone"   ng-model="hoto"/><br />     
+     <input type="submit" name="submit" value="Envoyer" />
+</form>
+
+</body>
+</html>

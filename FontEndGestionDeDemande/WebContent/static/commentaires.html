@@ -1,0 +1,16 @@
+<input type="text" ng-model="query">
+{{query}}
+<select ng-model="order">
+	<option value="userName">order by name</option>
+	<option value="content">order by content</option>
+</select>
+
+
+<div
+	ng-repeat="user in comments | filter:{content:query} |  orderBy:order">
+	<p>
+		<strong>{{user.userName}} <br> {{user.content}}
+		</strong> <input type="text" ng-model="query">{{query}}
+	</p>
+</div>
+
