@@ -1,5 +1,20 @@
 @CHARSET "ISO-8859-1";
-
+.legendCSS{
+    width:inherit; /* Or auto */
+    padding:0 10px; /* To give a bit of padding on the left and right */
+    border-bottom:none;
+   }
+.fielsetCSS { 
+	width: 150px;
+    display: block;
+    margin-left: 2px;
+    margin-right: 2px;
+    padding-top: 0.35em;
+    padding-bottom: 0.625em;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    border: 2px groove (internal value);
+}
 .navbar {
 	background-image: linear-gradient(#54B4EB, #2FA4E7 60%, #1D9CE5);
 	background-repeat: no-repeat;
@@ -9,19 +24,21 @@
 	width: 100%;
 	min-height: 50px;
 }
-.radioCss{
+
+.radioCss {
 	margin-left: 50px;
 	display: inline;
-	
-	
 }
-.panel-footer{
+
+.panel-footer {
 	margin-top: 20px;
 	padding-top: 0px;
 }
-.panel{
+
+.panel {
 	margin-top: 20px;
 }
+
 .btn-primary {
 	height: 40px;
 	margin-right: 15px;
@@ -30,30 +47,34 @@
 	font-weight: 30;
 	font-family: "times new roman", times, serif;
 }
-.panel-footer{
+
+.panel-footer {
 	text-align: center;
-}
-.panel-title{
-	text-align: center;
-	color : #0080ff;
-	
-}
-.espaceMarginA {
-	margin-top: 10px;
 }
 
-.pull-right{
-	margin-right: 3px;
+.panel-title {
+	text-align: center;
+	color: #0080ff;
+}
+
+.pull-right {
+	margin-right: 300px;
 	margin-top: 10px;
 	color: #fff;
 }
+
 .img-circle {
 	margin-top: 5px;
-	margin-left: 400px;
+	margin-left: 200px;
 	width: 70px;
 	height: 40px;
 	padding-bottom: 0px;
 }
+
+.espaceMarginA {
+	margin-top: 10px;
+}
+
 h2 {
 	padding-top: 0px;
 	text-align: center;
@@ -62,25 +83,10 @@ h2 {
 	font-weight: 300;
 	font-family: "times new roman", times, serif;
 	font-weight: 300;
-	margin-top: 100px;
+	margin-top: 20px;
 }
-/* .col-sm-2{
-	font-size: 18px;
-	font-family: "times new roman", times, serif;
+
+.panel {
+	margin-top: 150px;
 }
-.form-horizontal {
-	margin-left: 300px;
-	margin-top: 50px;
-}
- 
- .controlDivCenter{
-    margin-left: 160px;
-	text-align: center;
-	display: inline;	
-}
-.form-control{
-	position: relative;
-	width: 400px;
-	height: 40px;
-}
- */
+/

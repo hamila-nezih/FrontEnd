@@ -33,7 +33,8 @@ app.controller('UserListCtrl', [ '$scope', 'UsersFactory', 'UserFactory',
 
 			$scope.users = UsersFactory.select(
 					function(status) {
-						console.log("status" +status);
+						
+
 				
 			},
 			function(status) {
@@ -42,6 +43,7 @@ app.controller('UserListCtrl', [ '$scope', 'UsersFactory', 'UserFactory',
 //				console.log(status);
 				
 			});
+			console.log($scope.users);
 		} ]);
 
 app.controller('UserDetailCtrl', [ '$scope', '$routeParams', 'UserFactory',

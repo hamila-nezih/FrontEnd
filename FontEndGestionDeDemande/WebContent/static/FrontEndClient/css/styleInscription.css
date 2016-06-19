@@ -1,0 +1,43 @@
+@CHARSET "ISO-8859-1";
+
+.radioCss{
+	margin-top : 5px;	
+	display: inline;	
+}
+.panel-footer{
+	margin-top: 20px;
+	padding-top: 0px;
+}
+.panel{
+	margin-top: 20px;
+}
+.btn-primary {
+	height: 40px;
+	margin-right: 15px;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 30;
+	font-family: "times new roman", times, serif;
+}
+.panel-footer{
+	text-align: center;
+}
+.panel-title{
+	text-align: center;
+	color : #0080ff;
+	
+}
+.espaceMarginA {
+	margin-top: 10px;
+}
+.field-message {
+	display: inline-block;
+	color: #e9322d;
+	font-size: 90%;
+}
+
+.collpase .pull-right{
+	margin-right: 30px;
+	margin-top: 22px;
+	color: #400000;
+}

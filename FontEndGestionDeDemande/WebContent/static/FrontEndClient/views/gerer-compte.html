@@ -1,0 +1,113 @@
+<header>
+	<!-- 	<meta charset="utf-8">
+ -->
+	<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+
+			<div class="collpase navbar-collapse" id="button">
+				<a type="button" class=" pull-right btn btn-info"
+					href="template.html">Déconnecter <span
+					class="glyphicon glyphicon-log-out"></span></a> <a type="button"
+					class=" pull-right btn btn-info" href="#/">Accueil <span class=" glyphicon glyphicon-home"></span>
+				</a>
+				<h4 class=" pull-right">Bonjour Nom Prenom</h4>
+				<img src="images/logo.jpg" class="img-circle " alt="Cinque Terre">
+			</div>
+		</div>
+	</div>
+	<h2>
+		Bienvenu sur le site de gestion des demandes<br> Administratives
+	</h2>
+</header>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-2"></div>
+		<div class="col-md-8">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h1 class="panel-title ">Paramètres généraux du compte</h1>
+				</div>
+				<div class="panel-body">
+					<form class="form-horizontal">
+						<div class="form-group">
+							<label for="inputfirstname" class="col-md-3 control-label">
+								Nom</label>
+							<div class="col-md-7">
+								<input type="text" class="form-control" id="nom"
+									placeholder={{client.nom}} disabled />
+							</div>
+
+							<a class="col-md-2" ng-click="modifier('nom')">{{formulaireNom}}</a>
+
+						</div>
+						<div class="form-group">
+							<label for="inputfirstname" class="col-md-3 control-label">
+								Prenom</label>
+							<div class="col-md-7">
+								<input type="text" class="form-control" id="prenom"
+									placeholder="{{client.prenom}}" disabled />
+							</div>
+							<a class="col-md-2" ng-click="modifier('prenom')">{{formulairePrenom}}</a>
+						</div>
+
+						<div class="form-group">
+							<label for="inputfirstname" class="col-md-3 control-label">
+								Date de naissance</label>
+							<div class="col-md-7">
+								<input class="form-control" id="date"
+									placeholder="{{client.dateNaissance | date:'MM/dd/yyyy'}}"
+									disabled />
+							</div>
+							<a class="col-md-2" ng-click="modifier('date')">{{formulaireDate}}</a>
+						</div>
+						<div class="form-group">
+							<label for="inputdateofbirth" class="col-md-3 control-label">
+								Sex </label>
+
+							<div class=" radioCss col-md-7">
+								<label> <input type="radio" name="gender" id="femme"
+									value="Femme" disabled>Femme
+								</label> <label> <input type="radio" name="gender" id="homme"
+									disabled value="homme"> Homme
+								</label>
+							</div>
+							<a class="col-md-2" ng-click="modifier('sex')">{{formulaireSex}}</a>
+						</div>
+
+						<div class="form-group">
+							<label for="inputemail" class="col-md-3 control-label">
+								Tél</label>
+							<div class="col-md-7">
+								<input type="text" class="form-control" id="tel"
+									placeholder={{client.tel}} disabled></input>
+							</div>
+							<a class="col-md-2" ng-click="modifier('tel')">{{formulaireTel}}</a>
+						</div>
+
+						<div class="form-group">
+							<label for="inputphone" class="col-md-3 control-label">
+								E-mail </label>
+							<div class="col-md-7">
+								<input type="email" class="form-control" id="mail"
+									placeholder={{client.mail}} disabled></input>
+							</div>
+							<a class="col-md-2" ng-click="modifier('mail')">{{formulaireMail}}</a>
+
+						</div>
+						<div class="form-group">
+							<label for="inputpassword" class="col-md-3 control-label">
+								Mot de passe</label>
+							<div class="col-md-7">
+								<input type="password" name="" class="form-control" id="password"
+									placeholder="********" disabled>
+							</div>
+							<a class="col-md-2" ng-click="modifier('password')">{{formulairePassword}}</a>
+						</div>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</div>

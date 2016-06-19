@@ -1,0 +1,224 @@
+
+<header>
+	<!-- 	<meta charset="utf-8">
+ -->
+	<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="collpase navbar-collapse" id="button">
+				<a type="button" class=" pull-right btn btn-info"
+					href="template.html">Déconnecter <span
+					class="glyphicon glyphicon-log-out"></span></a> <a type="button"
+					class=" pull-right btn btn-info" href="#/gererCompte">Gerer
+					compte <span class="glyphicon glyphicon-cog"></span>
+				</a>
+				<h4 class=" pull-right">Bonjour Nom Prenom</h4>
+				<img src="images/logo.jpg" class="img-circle hidden-xs hidden-sm"
+					alt="Cinque Terre">
+			</div>
+		</div>
+	</div>
+	<h2>
+		Bienvenu sur le site de gestion des demandes<br> Administratives
+	</h2>
+
+
+
+
+
+
+	<!--*************************************************************************  -->
+	<div Class="marginGD">
+		<div class=" navbar-header hidden-xs">
+
+			<div class="navbar">
+
+				<div class="btn-group btn-group-justified " role="group"
+					aria-label="...">
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-primary ">Accueil</button>
+					</div>
+					<div class="btn-group" role="group">
+						<button type="button"
+							class="btn btn-primary dropdown-toggle btn-responsive"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Demandes
+							Administrative</button>
+						<div class="dropdown-menu">
+							<div ng-repeat="typeDemande in listeDemandeDisponible">
+							<div ng-show="'{{typeDemande.actif}}'=='true'">
+								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="templateDemandePasseport.html">
+									{{typeDemande.titre}}</a>
+								<!-- <div class="divider"></div>
+							<a class="dropdown-item" href="#">Demande d'une nouvelle
+								carte d'identité</a>
+							 -->
+							</div>
+							</div>
+						</div>
+					</div>
+					<div class="btn-group" role="group">
+						<button type="button" class="btn btn-primary dropdown-toggle"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Mes
+							Demandes</button>
+						<div class="dropdown-menu">
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Demandes En Cours</a>
+							<div class="divider"></div>
+							<a class="dropdown-item" href="#">Demandes Cloturés</a>
+						</div>
+					</div>
+					<div class="btn-group bg-primary" role="group">
+
+
+						<div class="input-group">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button"
+									ng-click="viderChampRecheche()">
+									<span class="glyphicon glyphicon-remove-sign"></span>
+								</button>
+							</span> <input id="champRechecher" type="text" class="form-control"
+								placeholder="Recherchez" aria-describedby="basic-addon1">
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="button">
+									<span class="glyphicon glyphicon-search"></span>
+								</button>
+							</span>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- pour les petits ecran   -->
+	<div class="navbar navbar-default visible-xs  ">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#example">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collpase navbar-collapse" id="example">
+				<ul class="nav navbar-nav">
+					<li><a href="">Accueil</a></li>
+					<li class="dropdown"><a data-toggle="dropdown"
+						class="dropdown-toggle" href="#">Demandes Administrative <b
+							class="caret"></b></a>
+
+						<div class="dropdown-menu">
+							<div ng-repeat="typeDemande in listeDemandeDisponible">
+							<div ng-show="'{{typeDemande.actif}}'=='true'">
+								<div class="dropdown-divider"></div>
+								<a class=" dropdown-item-petit-ecran dropdown-item" href="#">
+									{{typeDemande.titre}}</a>
+
+							</div>
+							</div>
+						</div></li>
+					<li class="dropdown"><a data-toggle="dropdown"
+						class="dropdown-toggle" href="#">Mes Demandes <b class="caret"></b></a>
+						<div class="dropdown-menu">
+
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item-petit-ecran dropdown-item" href="#">Demandes
+								En Cours</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item-petit-ecran dropdown-item" href="#">Demandes
+								Cloturés</a>
+
+						</div></li>
+				</ul>
+
+			</div>
+
+
+		</div>
+
+	</div>
+</header>
+
+<div class="container">
+	<br> <br> <br> <br> <br> <br> <br> <br>
+
+	<h1>on va mettre ici la Description general du site( les
+		differents services....)</h1>
+</div>
+<div class="container">
+	<br> <br> <br> <br> <br> <br> <br> <br>
+
+	<h1>on va mettre ici la Description general du site( les
+		differents services....)</h1>
+</div>
+<div class="container">
+	<br> <br> <br> <br> <br> <br> <br> <br>
+
+	<h1>on va mettre ici la Description general du site( les
+		differents services....)</h1>
+</div>
+<div class="container">
+	<br> <br> <br> <br> <br> <br> <br> <br>
+
+	<h1>on va mettre ici la Description general du site( les
+		differents services....)</h1>
+</div>
+<div class="container">
+	<br> <br> <br> <br> <br> <br> <br> <br>
+
+	<h1>on va mettre ici la Description general du site( les
+		differents services....)</h1>
+</div>
+<div class="container">
+	<br> <br> <br> <br> <br> <br> <br> <br>
+
+	<h1>on va mettre ici la Description general du site( les
+		differents services....)</h1>
+</div>
+<div class="container">
+	<br> <br> <br> <br> <br> <br> <br> <br>
+
+	<h1>on va mettre ici la Description general du site( les
+		differents services....)</h1>
+</div>
+<div class="container">
+	<br> <br> <br> <br> <br> <br> <br> <br>
+
+	<h1>on va mettre ici la Description general du site( les
+		differents services....)</h1>
+</div>
+
+<!-- Fin  les petits ecrans   -->
+
+<footer class="hidden-xs">
+
+	<div class="navbar-bottom navbar navbar-default  navbar-inverse">
+
+		<div class="container">
+			<div class="row">
+				<div class="navbar-row1-font col-lg-4">
+					<a class="navbar-row1-font" href="">Accueil</a><br> <a
+						class="navbar-row1-font" href="">Demandes Administratives</a><br>
+					<a class="navbar-row1-font" href="">Mes Demandes</a>
+				</div>
+				<div class="navbar-row2-font col-lg-5">
+					<div ng-repeat="typeDemande in listeDemandeDisponible">
+					<div ng-show="'{{typeDemande.actif}}'=='true'">
+						<a class="navbar-row2-font" href="">{{typeDemande.titre}}</a> <br>
+					</div></div>
+				</div>
+				<div class="navbar-row1-font col-lg-3">
+					<a class="navbar-row1-font " href="">Demandes Cloturés</a><br>
+					<a class="navbar-row1-font" href="">Demandes Cloturés</a>
+				</div>
+			</div>
+
+
+		</div>
+
+
+	</div>
+
+
+
+</footer>
