@@ -9,6 +9,9 @@ app.config(function($routeProvider,$httpProvider) {
 	}).when('/page-accueil-connecter', {
 		templateUrl : 'views/page-accueil-connecter.html',
 		controller : 'pageAccueilConnecterCtrl'
+	}).when('/connexion', {
+		templateUrl : 'views/connexion.html',
+		controller : 'connecxionCtrl'
 	}).when('/gerer-compte', {
 		templateUrl : 'views/gerer-compte.html',
 		controller : 'gererCompteCtrl'

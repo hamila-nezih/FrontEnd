@@ -18,7 +18,7 @@ app.controller(
 								ClientFactory.create($scope.client, function() {
 									$location.path('/page-accueil-connecter');
 								}, function(status) {
-									console.log(status);
+									console.log($scope.client);
 								});
 							}
 							/* recuperation le date du systeme */
