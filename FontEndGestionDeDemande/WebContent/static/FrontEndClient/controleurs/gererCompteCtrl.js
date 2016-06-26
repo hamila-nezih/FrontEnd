@@ -1,11 +1,12 @@
-app.controller('gererCompteCtrl', [ '$scope', 'ClientFactory', '$location',
-		'$window', function($scope, ClientFactory, $location, $window) {
+app.controller('gererCompteCtrl', [ '$scope', 'GererCompteFactory', '$location',
+		'$window', function($scope, GererCompteFactory, $location, $window) {
 
 			/* recuperation les information du client */
-			$scope.client = ClientFactory.get({
+			$scope.client = GererCompteFactory.get({
 				id : "2"
 			}, function(data) {
 				// selectionner le bouton radio
+				console.log(data);
 				if (data.sex == 'homme') {
 					document.getElementById("homme").checked = true;
 				} else {

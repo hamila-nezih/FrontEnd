@@ -1,4 +1,4 @@
-app.factory('ClientFactory', function($resource) {
+app.factory('GererCompteFactory', function($resource) {
 
 	return $resource('http://localhost:8081/stage/client/:verb/:id', {}, {
 		"get" : {

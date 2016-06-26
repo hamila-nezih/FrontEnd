@@ -11,10 +11,19 @@ app.config(function($routeProvider,$httpProvider) {
 		controller : 'pageAccueilConnecterCtrl'
 	}).when('/connexion', {
 		templateUrl : 'views/connexion.html',
-		controller : 'connecxionCtrl'
+		controller : 'connexionCtrl'
+	}).when('/creerDemande', {
+		templateUrl : 'views/creer-demande.html',
+		controller : 'creerDemandeCtrl'
 	}).when('/gerer-compte', {
 		templateUrl : 'views/gerer-compte.html',
 		controller : 'gererCompteCtrl'
+	}).when('/demandes-en-cours', {
+		templateUrl : 'views/demandes-en-cours.html',
+		controller : 'DemandesEnCoursCtrl'
+	}).when('/modifier-demande', {
+		templateUrl : 'views/modifier-demande.html',
+		controller : 'modifierDemandeCtrl'
 	}).when('/inscription', {
 		templateUrl : 'views/inscription.html',
 		controller : 'inscriptionCtrl'

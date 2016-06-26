@@ -7,7 +7,7 @@
 	box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
 	border-radius: 0px;
 	width: 100%;
-	min-height: 50px;
+	min-height: 70px;
 }
 .marginGD .navbar .btn-primary {
 	height: 70px;
@@ -25,12 +25,12 @@ h4{
 	padding-top: 7px;
 }
 .espaceMarginA {
-	margin-top: 10px;
+	margin-top: 20px;
 }
 
 .pull-right{
 	margin-right: 30px;
-	margin-top: 7px;
+	margin-top: 15px;
 	color: #fff;
 }
 .marginGD{
@@ -83,7 +83,7 @@ h4{
 
 .pull-right{
 	margin-right: 300px;
-	margin-top: 10px;
+	margin-top: 15px;
 	color: #fff;
 }
 
@@ -112,12 +112,12 @@ a{
 
 .pull-right{
 	margin-right: 30px;
-	margin-top: 7px;
+	margin-top: 15px;
 	color: #fff;
 }
 .img-circle {
-	margin-top: 5px;
-	margin-left: 400px;
+	margin-top: 15px;
+	margin-left: 200px;
 	width: 70px;
 	height: 40px;
 	padding-bottom: 0px;

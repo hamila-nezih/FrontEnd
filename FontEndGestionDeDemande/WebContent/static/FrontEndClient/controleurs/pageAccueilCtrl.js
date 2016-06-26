@@ -11,7 +11,6 @@ app.controller('pageAccueilCtrl', [
 						console.log(data);
 
 					}, function(status) {
-
 					});
 			/* callback for ng-click 'viderChampRecheche': */
 			$scope.viderChampRecheche = function() {

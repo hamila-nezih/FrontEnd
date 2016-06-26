@@ -22,9 +22,14 @@
 	text-align: center;
 }
 .panel-title{
+	padding-top: 0px;
 	text-align: center;
-	color : #0080ff;
-	
+	color: #0000ff;
+	font-size: 22px;
+	font-weight: 300;
+	font-family: "times new roman", times, serif;
+	font-weight: 300;
+	margin-top: 10px;
 }
 .espaceMarginA {
 	margin-top: 10px;
@@ -34,11 +39,20 @@
 	color: #e9322d;
 	font-size: 90%;
 }
-
+.titre-connexion {
+	margin-left : 20px;
+	display: inline;
+	text-align: center;
+	color: #ffffff;
+	font-size: 22px;
+	font-weight: 300;
+	font-family: "times new roman", times, serif;
+	font-weight: 300;
+}
 .collpase .pull-right{
 	margin-right: 30px;
 	margin-top: 22px;
-	color: #400000;
+	color: #00ff40;
 }
 /**********************/
 .input-group {
@@ -149,21 +163,20 @@ h4 {
 .pull-right {
 	margin-right: 30px;
 	margin-top: 15px;
-	color: #fff;
+	color: #00ff80;
 }
 
 .image .img-circle-accueil  {
 	text-align: center;
-	
 	margin-left: 5px;
-	width: 700px;
-	height: 250px;
+	width: 500px;
+	height: 150px;
 	padding-bottom: 0px;
 	display: inline;
 }
 
 .image .img-circle-logo {	
-	margin-left: 5px;
+	margin-left: 300px;
 	width: 70px;
 	height: 40px;
 	padding-bottom: 0px;
@@ -173,19 +186,3 @@ h4 {
 .image{
 	margin-top : 15px;
 } 
-.titre-connxion {
-	margin-left : 120px;
-	display: inline;
-	text-align: center;
-	color: #ffffff;
-	font-size: 22px;
-	font-weight: 300;
-	font-family: "times new roman", times, serif;
-	font-weight: 300;
-}
-.well{
-	margin-left : 20px;
-	margin-right :18px;
-	margin-bottom :7px;
-	
-}

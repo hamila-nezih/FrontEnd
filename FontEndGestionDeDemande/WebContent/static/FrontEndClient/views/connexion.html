@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="css/styleInscription.css">
+<link rel="stylesheet" type="text/css" href="css/styleConnexion.css">
 <header>
 	<!-- 	<meta charset="utf-8">
  -->
@@ -7,13 +7,15 @@
 
 
 			<div class="collpase navbar-collapse" id="button">
+
+
 				<div class="image">
 					<img src="images/logo.jpg"
 						class="img-circle img-circle-logo   hidden-xs hidden-sm"
 						alt="Cinque Terre">
 
-					<h5 class="titre-connxion">Bienvenu sur le site de gestion des
-						demandes Administratives</h5>
+					<h5 class="titre-connexion">Bienvenu sur le site de gestion
+						des demandes Administratives</h5>
 
 				</div>
 			</div>
@@ -32,206 +34,47 @@
 </header>
 <div class="container">
 	<div class="row">
-		<div class="col-lg-2"></div>
-		<div class="col-md-8">
+		<div class="col-lg-3"></div>
+		<div class="col-md-6">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-					<h1 class="panel-title ">S'inscrire ( Tous les champs sont
-						obligatoires )</h1>
+					<h1 class="panel-title">Se connecter</h1>
 				</div>
-				<form name="createClientForm" class="form-horizontal"
-					ng-submit="createClientForm.$valid && createNewClient()" novalidate>
-					<div class="panel-body">
+				<div class="panel-body">
 
+					<form class="form-horizontal">
 						<div class="form-group">
-							<label for="inputfirstname" class="col-md-3 control-label">
-								Nom</label>
+							<label for="inputfirstname" class="col-md-2 control-label">
+							</label>
 							<div class="col-md-8">
-								<input type="text" class="form-control" name="nom" id="nom"
-									placeholder="Enter Votre Nom" ng-model="client.nom" required
-									ng-maxlength="20" />
-								<div class="field-message"
-									ng-messages="createClientForm.nom.$error"
-									ng-if='createClientForm.$submitted' ng-cloak>
-									<div ng-message="maxlength">{{msg.msgTailleMax}}</div>
-									<div ng-message="required">{{msg.msgRequired}}</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="inputlastname" class="col-md-3 control-label">
-								Prénom</label>
-							<div class="col-md-8">
-								<input type="text" class="form-control" id="prenom"
-									name="prenom" placeholder="Enter Votre Prenom " required
-									ng-maxlength="20" ng-model="client.prenom" />
-								<div class="field-message"
-									ng-messages="createClientForm.prenom.$error"
-									ng-if='createClientForm.$submitted' ng-cloak>
-									<div ng-message="maxlength">{{msg.msgTailleMax}}</div>
-									<div ng-message="required">{{msg.msgRequired}}</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="inputdateofbirth" class="col-md-3 control-label">
-								Date de naissance</label>
-							<div class="col-md-8">
-								<input type="date" class="form-control" id="date" name="date"
-									placeholder="Enter Votre Date De Naissance "
-									ng-model="client.dateNaissance" required="required"
-									min="1900-01-01" max="{{today}}" />
-							
-							<div class="field-message"
-								ng-messages="createClientForm.date.$error"
-								ng-if='createClientForm.$submitted' ng-cloak>
-								<div ng-message="required">{{msg.msgRequired}}</div>
-							</div>
+								<input type="text" class="form-control" id="inputfirstname"
+									placeholder="E-mail" />
 							</div>
 						</div>
 						<div class="form-group">
-							<label for="inputemail" class="col-md-3 control-label">
-								Sex</label>
-
-							<div class=" radioCss col-md-7">
-								<label> 
-								</label> <label> <input   type="radio" name="sex" id="homme"
-									value="homme"  ng-model="client.sex" > Homme  <input  type="radio" name="sex" id="femme" checked="checked"
-									value="femme"  ng-model="client.sex">Femme
-								</label>
-								<div class="field-message"
-									ng-messages="createClientForm.sex.$error"
-									ng-if='createClientForm.$submitted' ng-cloak>		
-									<div ng-message="required">{{msg.msgRequired}}</div>
-								</div>
-								
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="inputemail" class="col-md-3 control-label">
-								Tél</label>
+							<label for="inputlastname" class="col-md-2 control-label">
+							</label>
 							<div class="col-md-8">
-								<input type="number" class="form-control" id="tel" name="tel"
-									placeholder="Enter Votre Numéro" ng-model="client.tel" required
-									ng-minlength="13" ng-maxlength="13"></input>
-								<div class="field-message"
-									ng-messages="createClientForm.tel.$error"
-									ng-if='createClientForm.$submitted' ng-cloak>
-									<div ng-message="minlength">{{msg.msgTailleMin}}</div>
-									<div ng-message="maxlength">{{msg.msgTailleMax}}</div>
-									<div ng-message="required">{{msg.msgRequired}}</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label for="inputphone" class="col-md-3 control-label">
-								E-mail </label>
-							<div class="col-md-8">
-								<input type="email" class="form-control" id="mail" name="mail"
-									placeholder="Enter E-mail"
-									pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$"
-									ng-model="client.mail" required="required"></input>
-								<div class="field-message"
-									ng-messages="createClientForm.mail.$error"
-									ng-if='createClientForm.$submitted' ng-cloak>
-									<div ng-message="pattern">{{msg.msgTailleMin}}</div>
-									<div ng-message="maxlength">{{msg.msgTailleMax}}</div>
-									<div ng-message="required">{{msg.msgRequired}}</div>
-								</div>
-							</div>
-						</div>
-
-					 <div class="form-group">
-							<label for="inputpassword" class="col-md-3 control-label">
-								Mots de passe </label>
-							<div class="col-md-8">
-								<input type="password" id="password" name="password"
-									class="form-control" placeholder="Enter Votre Mots De Passe"
-									ng-model="client.motsPasse" ng-minlength="8" ng-maxlength="20"
-									ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required />
-								<span
-									ng-show="createClientForm
-									.password.$error.required && createClientForm.password.$dirty">required</span>
-								<div class="field-message">
-								<span
-									ng-show="!createClientForm.password.$error.required && (createClientForm.password.$error.minlength 
-									|| createClientForm.password.$error.maxlength) && createClientForm.password.$dirty">
-									Votre mot de passe doit contenir entre 8 et 20 caractères.</span> <span
-									ng-show="!createClientForm.password.$error.required && !createClientForm.password.$error.minlength
-									 && !createClientForm.password.$error.maxlength && createClientForm.password.$error.pattern 
-									 && createClientForm.password.$dirty">
-									 Votre mot de passe doit composer de chiffres et de lettres et
-									  comporter des majuscules/minuscules ou des caractères spéciaux. 
-									</span>
-									</div>
-									<div class="field-message"
-									ng-messages="createClientForm.password_c.$error"
-									ng-if='createClientForm.$submitted' ng-cloak>
-									<div ng-message="required">{{msg.msgRequired}}</div>
-								</div>
-							</div>
-						</div>
-					 <div class="form-group">
-							<label for="inputconfirmpassword" class="col-md-3 control-label">
-								Confirmer </label>
-							<div class="col-md-8">
-								<input type="password" id="password_c" name="password_c"
-									class="form-control" placeholder="Confirmer Votre Mots De Passe"
-									ng-model="password_c" required />
-									<!-- valid-password-c --> 
-									<div class="field-message"> <span
-									ng-show="createClientForm.password_c.$error.required && createClientForm.password_c.$dirty">
-									Confirmer votre mot de passe.</span> <span
-									ng-show="!createClientForm.password_c.$error.required && createClientForm.password_c.$error.noMatch
-									 && createClientForm.password.$dirty">Les mots de passe ne correspondent pas.</span>
-									</div>
-									<div class="field-message"
-									ng-messages="createClientForm.password_c.$error"
-									ng-if='createClientForm.$submitted' ng-cloak>
-									<div ng-message="required">{{msg.msgRequired}}</div>
-								</div>
-							</div>
-						</div>  
-
-						<div class=”form-group”>
-
-							<div>
-								<div>
-									<label for="inputscreenname" class="col-md-1 "></label> <label
-										class="col-md-10"> <input type="checkbox" name="checkb" id="checkb"
-										class="col-md-1" required>
-										J'accepte les conditions générales d'utilisation
-									</label>
-									<div class="field-message"
-										ng-messages="createClientForm.checkb.$error"
-										ng-if='createClientForm.$submitted' ng-cloak>
-										<div ng-message="required">{{msg.msgRequired}}</div>
-									</div>
-								</div>
+								<input type="text" class="form-control" id="inputlastname"
+									placeholder="Mot de passe " />
 							</div>
 						</div>
 
 
 
 
-					</div>
-					<div class="panel-footer">
-						<div class="form-group">
-							<div class="espaceMarginA">
-								<input type="submit" name="valider" value="S'inscrire"
-									class=" btn-primary btn btn-default "> <a href="#/">
-									Cancel </a>
-							</div>
+					</form>
+				</div>
+				<div class="panel-footer">
+					<div class="form-group">
+						<div class="espaceMarginA">
+							<a type="button" class="btn-primary btn btn-default"
+								ng-click="connexion()">Connexion</a> <a
+								href="template.html"> Cancel </a>
 						</div>
 					</div>
-				</form>
+				</div>
 			</div>
 		</div>
 	</div>
 </div>
-
-

@@ -10,7 +10,7 @@
 				<a type="button" class=" pull-right btn btn-info"
 					href="#/inscription">S'inscrire <span
 					class="glyphicon glyphicon-pencil"></span></a> <a type="button"
-					class=" pull-right btn btn-info" href="#/gererCompte">Connecter-vous
+					class=" pull-right btn btn-info" href="#/connexion">Connecter-vous
 					<span class="glyphicon glyphicon-log-in"></span>
 				</a>
 				<div class="image">
@@ -53,14 +53,12 @@
 							Administrative</button>
 						<div class="dropdown-menu">
 							<div ng-repeat="typeDemande in listeDemandeDisponible">
-								<div ng-show="'{{typeDemande.actif}}'=='true'">
-									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="templateDemandePasseport.html">
-										{{typeDemande.titre}}</a>
-									<!-- <div class="divider"></div>
-							<a class="dropdown-item" href="#">Demande d'une nouvelle
-								carte d'identité</a>
-							 -->
+							
+								<div ng-show="'{{typeDemande[2]}}'=='true'">
+								
+									 <div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="#/creerDemande">
+										{{typeDemande[1]}}</a>								
 								</div>
 							</div>
 						</div>
@@ -118,11 +116,12 @@
 
 						<div class="dropdown-menu">
 							<div ng-repeat="typeDemande in listeDemandeDisponible">
-								<div ng-show="'{{typeDemande.actif}}'=='true'">
-									<div class="dropdown-divider"></div>
-									<a class=" dropdown-item-petit-ecran dropdown-item" href="#">
-										{{typeDemande.titre}}</a>
-
+							
+								<div ng-show="'{{typeDemande[2]}}'=='true'">
+								
+									 <div class="dropdown-divider"></div>
+									<a class="dropdown-item" href="#/creerDemande">
+										{{typeDemande[1]}}</a>								
 								</div>
 							</div>
 						</div></li>
@@ -169,13 +168,15 @@
 						class="navbar-row1-font" href="">Demandes Administratives</a><br>
 					<a class="navbar-row1-font" href="">Mes Demandes</a>
 				</div>
-				<div class="navbar-row2-font col-lg-5">
+		     	<div class="navbar-row2-font col-lg-5">
 					<div ng-repeat="typeDemande in listeDemandeDisponible">
-						<div ng-show="'{{typeDemande.actif}}'=='true'">
-							<a class="navbar-row2-font" href="">{{typeDemande.titre}}</a> <br>
+						<div ng-show="'{{typeDemande[2]}}'=='true'">
+							<a class="navbar-row2-font" href="">{{typeDemande[1]}}</a> <br>
 						</div>
 					</div>
-				</div>
+					
+				</div> 
+				
 				<div class="navbar-row1-font col-lg-3">
 					<a class="navbar-row1-font " href="">Demandes Cloturés</a><br>
 					<a class="navbar-row1-font" href="">Demandes Cloturés</a>
