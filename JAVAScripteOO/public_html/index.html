@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>JavaScripte orienté object</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body ng-app>
+        <input type="text" ng-model="NB1"/>
+        <div ng-init="users=['Marc','alin','ali']">
+            <ul>
+                <li ng-repeat="user in users | filter : NB1 ">
+                    {{user | uppercase }}
+                    
+                </li>
+            </ul>
+            {{users| filter:'m'}}
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js">
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,130 @@
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="css/styleCreerDemande.css">
+<header>
+	<!-- 	<meta charset="utf-8">
+ -->
+
+	<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#example">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="collpase navbar-collapse" id="button">
+				<a type="button" class=" pull-right btn btn-info"
+					href="#/">Déconnecter <span
+					class="glyphicon glyphicon-log-out"></span></a> <a type="button"
+					class=" pull-right btn btn-info" href="#/gerer-compte">Gerer
+					compte <span class="glyphicon glyphicon-cog"></span>
+				</a>
+				<h4 class=" pull-right">Bonjour Nom Prenom</h4>
+				<img src="images/logo.jpg" class="img-circle " alt="Cinque Terre">
+			</div>
+		</div>
+	</div>
+	<h2 class="titre">
+		Bienvenu sur le site de gestion des demandes<br> Administratives
+	</h2>
+</header>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-1"></div>
+		<div class="col-md-10">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div class="container">
+						<div class="row">
+							<div class="btn-group btn-breadcrumb">
+								<a href="#/page-accueil-connecter" class="btn btn-info"><i
+									class="glyphicon glyphicon-home"></i></a> <a
+									href="#/page-accueil-connecter" class="btn btn-info">demandes
+									Administrative</a> <a href="#/creerDemande" class="btn btn-info">
+									{{typeDemande.titre}}</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel-body">
+
+					<h2 class="titre2">Les champs précédés par un astérisque ( * )
+						sont obligatoires.</h2>
+
+					<form name="createClientForm" class="form-horizontal"
+						ng-submit="createNewDemande()" novalidate>
+						<div class="panel-body">
+							<h2 class="titre2"
+								style="margin-bottom: 30px; margin-left: 158px; margin-top: 30px;">Prerequis</h2>
+							<div
+								ng-repeat="prerequis in typeDemande.prerequisTypeDemandes | orderBy:'ordre'">
+								<div class="form-group">
+									<label for="inputfirstname" class="col-md-4 control-label">
+										{{prerequis.libelle}} : <span class="asterisque"
+										ng-show={{prerequis.obligatoire}}>*</span> <span
+										class="asterisqueHide" ng-hide={{prerequis.obligatoire}}>
+									</span>
+									</label>
+									<div ng-show="'{{prerequis.libelle}}'=='Civilite'">
+										<label style="margin-left: 15px;"> <input type="radio"
+											name="sex" id="homme">Homme <input type="radio"
+											name="sex" id="femme">Femme
+										</label>
+									</div>
+									<div class="col-md-8"
+										ng-hide="'{{prerequis.libelle}}'=='Civilite'">
+										<input type={{prerequis.tybeVariable}} class="form-control"
+											name="Nom" id="{{prerequis.libelle}}"
+											placeholder="Enter Votre {{prerequis.libelle}}"
+											ng-model=myvar required ng-maxlength="20" />
+										<div class="field-message"
+											ng-messages="createClientForm.nom.$error"
+											ng-if='createClientForm.$submitted' ng-cloak>
+											<div ng-message="maxlength">{{msg.msgTailleMax}}</div>
+											<div ng-message="required">{{msg.msgRequired}}</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<h2 class="titre2"
+								style="margin-bottom: 30px; margin-left: 135px; margin-top: 30px;">Documents</h2>
+
+							<div
+								ng-repeat="document in typeDemande.documentsTypeDemandes | orderBy:'id'">
+								<div class="form-group">
+									<label for="inputfirstname" class="col-md-4 control-label">
+										{{document.libelle}} : <span class="asterisque"
+										ng-show={{document.obligatoire}}>*</span> <span
+										class="asterisqueHide" ng-hide={{document.obligatoire}}>
+									</span>
+									</label>
+									<div class="col-md-8">
+										<input type="hidden" name="MAX_FILE_SIZE" value="100000" /> <input
+											type="file" name="icone" id="icone" ng-model="hoto"
+											file-model="code.myFile{{document.id}}" />
+
+									</div>
+								</div>
+							</div>
+
+						
+				</div>
+				<div class="panel-footer">
+					<div class="form-group">
+						<div class="espaceMarginA">
+							<input type="submit" name="valider" value="Enregister"
+								class=" btn-primary btn btn-default "> <a href="#/page-accueil-connecter">
+								Cancel </a>
+						</div>
+					</div>
+				</div>
+				</form>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>

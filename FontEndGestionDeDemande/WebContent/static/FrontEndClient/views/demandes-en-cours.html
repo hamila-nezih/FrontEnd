@@ -1,0 +1,80 @@
+<link rel="stylesheet" type="text/css" href="css/styleDemandesEncours.css">
+
+<header>
+	<!-- 	<meta charset="utf-8">
+ -->
+	<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+
+			<div class="collpase navbar-collapse" id="button">
+				<a type="button" class=" pull-right btn btn-info" href="#/">Déconnecter
+					<span class="glyphicon glyphicon-log-out"></span>
+				</a> <a type="button" class=" pull-right btn btn-info"
+					href="#/page-accueil-connecter">Accueil <span
+					class=" glyphicon glyphicon-home"></span>
+				</a>
+				<h4 class=" pull-right">Bonjour Nom Prenom</h4>
+				<img src="images/logo.jpg" style="margin-left: 200px"
+					class="img-circle " alt="Cinque Terre">
+			</div>
+		</div>
+	</div>
+	
+	<h2 class="titre">
+		Bienvenu sur le site de gestion des demandes<br> Administratives
+	</h2>
+	
+</header>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-1"></div>
+		<div class="col-md-10">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+				<div class="container">
+						<div class="row">
+							<div class="btn-group btn-breadcrumb">
+								<a href="#/page-accueil-connecter" class="btn btn-info"><i
+									class="glyphicon glyphicon-home"></i></a> <a
+									href="#/page-accueil-connecter" class="btn btn-info">demandes
+									Administrative</a> <a href="#/demandes-en-cours" class="btn btn-info">
+									Liste de demandes en cours</a>
+							</div>
+						</div>
+					</div>
+					
+				</div>
+				<div class="panel-body">
+
+					<div>
+						<table class="table table-striped">
+							<thead>
+								<tr>
+									<th style="min-width: 80px;">Type demande</th>
+									<th style="min-width: 80px;">Etat</th>
+									<th style="min-width: 80px;">Date de creation</th>									
+									<th style="width: 20px;">&nbsp;</th>
+									<th style="width: 20px;">&nbsp;</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="demandeEncours in demandesEncours |orderBy:demandeEncours[2]">
+									<td>{{ demandeEncours[0]}}</td>
+									<td>{{ demandeEncours[1]}}</td>
+									<td>{{ demandeEncours[2] | date:'MM/dd/yyyy'}}</td>
+									<td><a ng-click="editUser(user.id)">modifier&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									</a></td>
+									<td><a ng-click="deleteUser(user.id)">
+											&nbsp;&nbsp;&nbsp;supprimer </a></td>
+									<td><a ng-click="deleteUser(user.id)">
+											&nbsp;&nbsp;&nbsp;valider </a></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

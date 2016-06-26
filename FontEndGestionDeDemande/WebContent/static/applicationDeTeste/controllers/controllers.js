@@ -136,7 +136,7 @@ app.controller('login', [ '$scope', 'login', '$location',
 
 app.controller('upload', [ '$scope', 'UploadFactory', '$location',
                              		'MsgConfig', '$window','$http',
-                             		function($scope, UploadFactory,$http, $location, MsgConfig, $window) {
+                             		function($scope, UploadFactory, $location, MsgConfig, $window,$http) {
 
                              			/* callback for 'message' */
                              			$scope.msg = MsgConfig;
@@ -148,7 +148,6 @@ app.controller('upload', [ '$scope', 'UploadFactory', '$location',
                      					          method  : 'POST',
                      					          url     : 'http://localhost:8081/stage/uploadFile',
                      					          data    : $.param({
-                        							   name: 'hamila',
                         							   file: $scope.hoto  
                        							 }),
                        							
@@ -156,10 +155,6 @@ app.controller('upload', [ '$scope', 'UploadFactory', '$location',
                      						}).success(function(data, status, header) {
                      					        if("a"==="true"){
                      					            console.log("opa")
-                     					        }else{
-                     					           console.log(status.status);
-                     					           console.log($cookies.JSESSIONID);
-                     					           console.log(header);
                      					        }
                      					    });    
                              				

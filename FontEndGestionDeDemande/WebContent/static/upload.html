@@ -6,7 +6,7 @@
    
    <body ng-app = "myApp">
 	  <div ng-controller = "myCtrl">
-    <input type="file" file-model="myFile"/>
+    <input type="file" file-model="code.myFile"/>
     <button ng-click="uploadFile()">upload me</button>
    </div> 
    <!-- <form ng-submit="uploadFile()" name="uploadForm" enctype="multipart/form-data">
@@ -36,8 +36,23 @@
       myApp.service('fileUpload', ['$http','$location', function ($http,$location) {
           this.uploadFileToUrl = function(files, uploadUrl){
                var file = new FormData();
-              file.append('file', files); 
-              $http.post(uploadUrl, file, {
+               console.log(files.name);
+              file.append('file', files);
+              file.append('name', "files"); 
+            /*   $http({
+			          method  : 'POST',
+			          url     : 'http://localhost:8081/stage/uploadFile',
+			          data    : $.param({
+					   file:   file
+					   name:   "nnn"
+					 }),{transformRequest: angular.identity,
+		                  headers: {'Content-Type':undefined}}
+				}).success(function(data, status, header) {
+			        if("a"==="true"){
+			            console.log("opa")
+			        }
+			    });  */   
+           $http.post(uploadUrl,file, {
                   transformRequest: angular.identity,
                   headers: {'Content-Type':undefined}
               })
@@ -46,14 +61,15 @@
               })
               .error(function(){
             	 
-              });
+              }); 
           }
       }]);
 
       myApp.controller('myCtrl', ['$scope', 'fileUpload', function($scope, fileUpload){
           
+    	  $scope.code = {myFile: 'foo'};
           $scope.uploadFile = function(){
-              var file = $scope.myFile;
+              var file = $scope.code.myFile;
               console.log('file is ' );
               console.dir(file);
               var uploadUrl = "http://localhost:8081/stage/uploadFile";

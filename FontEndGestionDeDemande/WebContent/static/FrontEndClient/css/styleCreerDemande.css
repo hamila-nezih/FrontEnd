@@ -1,0 +1,154 @@
+@CHARSET "ISO-8859-1";
+.btn-breadcrumb .btn.btn-success:not(:last-child):after {
+  border-left: 10px solid #5cb85c;
+}
+.btn-breadcrumb .btn.btn-success:not(:last-child):before {
+  border-left: 10px solid #4cae4c;
+}
+.btn-breadcrumb .btn.btn-success:hover:not(:last-child):after {
+  border-left: 10px solid #47a447;
+}
+.btn-breadcrumb .btn.btn-success:hover:not(:last-child):before {
+  border-left: 10px solid #398439;
+}
+/** The Magic **/
+.btn-breadcrumb .btn:not(:last-child):after {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 10px solid white;
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  left: 100%;
+  z-index: 3;
+}
+.btn-breadcrumb .btn:not(:last-child):before {
+  content: " ";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 17px solid transparent;
+  border-bottom: 17px solid transparent;
+  border-left: 10px solid rgb(173, 173, 173);
+  position: absolute;
+  top: 50%;
+  margin-top: -17px;
+  margin-left: 1px;
+  left: 100%;
+  z-index: 3;
+}
+
+/** The Spacing **/
+.btn-breadcrumb .btn {
+  padding:6px 12px 6px 24px;
+}
+.btn-breadcrumb .btn:first-child {
+  padding:6px 6px 6px 10px;
+}
+.btn-breadcrumb .btn:last-child {
+  padding:6px 18px 6px 24px;
+}
+
+.navbar {
+	background-image: linear-gradient(#54B4EB, #2FA4E7 60%, #1D9CE5);
+	background-repeat: no-repeat;
+	border-bottom: 1px solid #178ACC;
+	box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
+	border-radius: 0px;
+	width: 100%;
+	min-height: 50px;
+}
+.radioCss{
+	margin-left: 50px;
+	display: inline;
+	
+	
+}
+.panel-footer{
+	margin-top: 20px;
+	padding-top: 0px;
+}
+.panel{
+	margin-top: 20px;
+}
+.btn-primary {
+ 	height: 40px;
+	margin-right: 15px;
+	color: #fff;
+	font-size: 18px;
+	font-weight: 30;
+	font-family: "times new roman", times, serif; 
+}
+.panel-footer{
+	text-align: center;
+}
+nav.breadcrumbs  li::after {
+	content: 'kk>';
+  margin-right: 10px;
+}
+
+.panel-title{
+	text-align: center;
+	color : #0080ff;
+	
+}
+h4{
+	padding-top: 7px;
+}
+.espaceMarginA {
+	margin-top: 10px;
+}
+
+.pull-right{
+	margin-right: 30px;
+	margin-top: 7px;
+	color: #fff;
+}
+.img-circle {
+	margin-top: 5px;
+	margin-left: 400px;
+	width: 70px;
+	height: 40px;
+	padding-bottom: 0px;
+}
+.titre {
+	padding-top: 0px;
+	text-align: center;
+	color: #0000ff;
+	font-size: 22px;
+	font-weight: 300;
+	font-family: "times new roman", times, serif;
+	font-weight: 300;
+	margin-top: 100px;
+}
+.asterisqueHide{
+	padding-top: 0px;
+	color: #0000ff;
+	font-size: 15px;
+	font-weight: 300;
+	font-family: "times new roman", times, serif;
+	font-weight: 300;
+	margin-right: 37px;
+}
+.asterisque{
+	padding-top: 0px;
+	color: #0000ff;
+	font-size: 15px;
+	font-weight: 300;
+	font-family: "times new roman", times, serif;
+	font-weight: 300;
+	margin-right: 30px;
+}
+.titre2{
+	padding-top: 0px;
+	color: #0000ff;
+	font-size: 22px;
+	font-weight: 300;
+	font-family: "times new roman", times, serif;
+	font-weight: 300;
+	margin-top: 30px;
+}
