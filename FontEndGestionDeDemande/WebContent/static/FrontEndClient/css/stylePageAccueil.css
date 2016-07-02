@@ -1,3 +1,14 @@
+/****Debut $ionicPopup css****/
+.popup-head {
+  background-color : #41ace9;
+  color: white;
+}
+
+.popup-body {
+  background-color : white;
+}
+
+/****Fin $ionicPopup css****/
 .input-group {
 	margin-left: 20px;
 	margin-right: 20px;
@@ -35,21 +46,22 @@
 
 .navbar-row1-font {
 	margin-top: 8px;
-	font-size: 20px;
+	font-size: 13px;
 	font-weight: 300;
-	font-family: "times new roman", times, serif;
 	font-weight: 300;
 	color: white;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 
 .navbar-row2-font {
-	margin-bottom: 5px;
-	margin-top: 5px;
-	font-size: 18px;
+	margin-top: 8px;
+	font-size: 13px;
 	font-weight: 300;
-	font-family: "times new roman", times, serif;
 	font-weight: 300;
 	color: white;
+	margin-top: 15px;
+	margin-bottom: 15px;
 }
 
 .navbar {
@@ -113,8 +125,8 @@ h4 {
 	text-align: center;
 	
 	margin-left: 5px;
-	width: 700px;
-	height: 250px;
+	width: 450px;
+	height: 130px;
 	padding-bottom: 0px;
 	display: inline;
 }

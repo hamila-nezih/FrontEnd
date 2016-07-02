@@ -56,10 +56,11 @@
 						sont obligatoires.</h2>
 
 					<form name="createClientForm" class="form-horizontal"
-						ng-submit="createNewDemande()" novalidate>
+						ng-submit="modifierDemande()" novalidate>
+						
 						<div class="panel-body">
 							<h2 class="titre2"
-								style="margin-bottom: 30px; margin-left: 158px; margin-top: 30px;">Prerequis</h2>
+								style="margin-bottom: 30px; margin-left: 135px; margin-top: 30px;">Prerequis</h2>
 							<div
 								ng-repeat="prerequis in prerequisDemande">
 								<div class="form-group">
@@ -69,13 +70,12 @@
 										class="asterisqueHide" ng-hide={{prerequis[3]}}>
 									</span>
 									</label>
-									<div ng-show="'{{prerequis[2]}}'=='Civilite'">
-										<label style="margin-left: 15px;"> <input type="radio"
-											name="sex" id="homme" checked>Homme <input type="radio"
-											name="sex1" id="femme">Femme
+									<div ng-show="'{{prerequis[2]}}'=='Civilite'" class="col-md-6">
+										<label style="margin-left: 15px;" ng-repeat="option in options"> <input
+											type="radio" ng-model="$parent.selected" ng-value="option" id="{{option}}" />{{option}}
 										</label>
 									</div>
-									<div class="col-md-8"
+									<div class="col-md-6"
 										ng-hide="'{{prerequis[2]}}'=='Civilite'">
 										<input type={{prerequis.tybeVariable}} class="form-control"
 											name="{{prerequis[2]}}" id="{{prerequis[2]}}"
@@ -88,25 +88,34 @@
 											<div ng-message="required">{{msg.msgRequired}}</div>
 										</div>
 									</div>
+									
 								</div>
 							</div>
 							<h2 class="titre2"
 								style="margin-bottom: 30px; margin-left: 135px; margin-top: 30px;">Documents</h2>
 
 							<div
-								ng-repeat="document in typeDemande.documentsTypeDemandes | orderBy:'id'">
+								ng-repeat="document in DocumentsDemande ">
 								<div class="form-group">
-									<label for="inputfirstname" class="col-md-4 control-label">
-										{{document.libelle}} : <span class="asterisque"
-										ng-show={{document.obligatoire}}>*</span> <span
-										class="asterisqueHide" ng-hide={{document.obligatoire}}>
+									<label  class="col-md-4 control-label">
+										{{document[2]}} : <span class="asterisque"
+										ng-show={{document[4]}}>*</span> <span
+										class="asterisqueHide" ng-hide={{document[4]}}>
 									</span>
 									</label>
-									<div class="col-md-8">
+									<div class="col-md-8" ng-show="modifier.m{{document[5]}}">
 										<input type="hidden" name="MAX_FILE_SIZE" value="100000" /> <input
 											type="file" name="icone" id="icone" ng-model="hoto"
-											file-model="code.myFile{{document.id}}" />
+											file-model="code.myFile{{document[5]}}" />
 
+									</div>
+									<div class="col-md-8" ng-hide="modifier.m{{document[5]}}">
+									
+									    <span  class="col-md-4">  {{document[3]}}&nbsp;&nbsp;&nbsp;</span>
+									    <a  class="col-md-3"ng-click="download(document[0],document[2])" style="cursor:  pointer;">Télécharger&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									       </a></span>
+									    <a  class="col-md-4" ng-click="modifierFonction(document[5])" style="cursor:  pointer;">
+											Modifier </a>
 									</div>
 								</div>
 							</div>
@@ -116,7 +125,7 @@
 				<div class="panel-footer">
 					<div class="form-group">
 						<div class="espaceMarginA">
-							<input type="submit" name="valider" value="S'inscrire"
+							<input type="submit" name="valider" value="Envoyer"
 								class=" btn-primary btn btn-default "> <a href="#/">
 								Cancel </a>
 						</div>
@@ -128,3 +137,36 @@
 		</div>
 	</div>
 </div>
+<footer class="hidden-xs">
+
+	<div class="navbar-bottom navbar navbar-default  navbar-inverse">
+
+		<div class="container">
+			<div class="row">
+				<div class="navbar-row1-font col-lg-4">
+					<a class="navbar-row1-font" href="#/page-accueil-connecter">Accueil</a><br> <a
+						class="navbar-row1-font" href="#/page-accueil-connecter">Demandes Administratives</a><br>
+					<a class="navbar-row1-font" href="#/page-accueil-connecter">Mes Demandes</a>
+				</div>
+				<div class="navbar-row2-font col-lg-5">
+					<div ng-repeat="typeDemande in listeDemandeDisponible">
+						<div ng-show="'{{typeDemande[2]}}'=='true'">
+							<a class="navbar-row2-font" href="#/creerDemande/{{typeDemande[0]}}">{{typeDemande[1]}}</a> <br>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="navbar-row1-font col-lg-3">
+					<a class="navbar-row1-font " href="#/page-accueil-connecter">Demandes Cloturés</a><br>
+					<a class="navbar-row1-font" href="#/page-accueil-connecter">Demandes Cloturés</a>
+				</div>
+			</div>
+
+
+		</div>
+
+
+	</div>
+
+</footer>

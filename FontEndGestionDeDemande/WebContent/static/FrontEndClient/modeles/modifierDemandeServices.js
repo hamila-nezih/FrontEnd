@@ -51,6 +51,34 @@ app.factory('PrerequisFactory', function($resource) {
 		}
 	})
 });
+app.factory('DocumentsFactory', function($resource) {
+	return $resource('http://localhost:8081/stage/demande/:verb/:idDmd', {}, {
+		"get" : {
+			'method' : 'GET',
+			isArray:true , 
+			'params' : {
+				verb : 'getDocuments'
+			}
+
+		},
+		"download" : {
+			method : 'GET',
+			responseType : 'arraybuffer',
+			cache : false,
+			params : {
+				verb : 'downloadFile'
+			}
+		},
+		"supprimer" : {
+			'method' : 'DELETE',
+			isArray : true,
+			'params' : {
+				verb : 'supprimer',
+				id : '@id'
+			}
+		}
+	})
+});
 app.factory('CreerDemandeFactory', function($resource) {
 
 	return $resource('http://localhost:8081/stage/demande/:verb', {}, {
@@ -106,6 +134,59 @@ app.factory('CreerPrerequisFactory', function($resource) {
 	})
 });
 
+
+/***********historique**************/
+app.factory('CreerHistoriqueDemandeFactory', function($resource) {
+
+	return $resource('http://localhost:8081/stage/demande/historiqueDemande', {}, {
+		"creer" : {
+			'method' : 'POST'		
+		},
+		"supprimer" : {
+			'method' : 'DELETE',
+			isArray : true,
+			'params' : {
+				verb : 'supprimer',
+				id : '@id'
+			}
+		}
+	})
+});
+
+app.factory('CreerHistoriquePrerequisFactory', function($resource) {
+
+	return $resource('http://localhost:8081/stage/demande/historiquePrerequis', {}, {
+		
+		"creer" : {
+			'method' : 'POST'			
+		},
+		"supprimer" : {
+			'method' : 'DELETE',
+			isArray : true,
+			'params' : {
+				verb : 'supprimer',
+				id : '@id'
+			}
+		}
+	})
+});
+
+app.factory('CreerHistoriqueDocumentFactory', function($resource) {
+
+	return $resource('http://localhost:8081/stage/demande/historiqueDocument', {}, {
+		"creer" : {
+			'method' : 'POST'		
+		},
+		"supprimer" : {
+			'method' : 'DELETE',
+			isArray : true,
+			'params' : {
+				verb : 'supprimer',
+				id : '@id'
+			}
+		}
+	})
+});
 app.service('fileUpload', ['$http','$location', function ($http,$location) {
     this.uploadFileToUrl = function(files, uploadUrl, idD, idTypeDocument){
          var file = new FormData();

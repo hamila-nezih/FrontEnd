@@ -6,7 +6,8 @@
    
    <body ng-app = "myApp">
 	  <div ng-controller = "myCtrl">
-    <input type="file" file-model="code.myFile"/>
+	  <a ng-click="getPdf()">Show PDF</a><br>
+    <input type="file" file-model="code.myFile" value="c:/passwords.txt"/>
     <button ng-click="uploadFile()">upload me</button>
    </div> 
    <!-- <form ng-submit="uploadFile()" name="uploadForm" enctype="multipart/form-data">
@@ -65,7 +66,40 @@
           }
       }]);
 
-      myApp.controller('myCtrl', ['$scope', 'fileUpload', function($scope, fileUpload){
+      myApp.controller('myCtrl', ['$scope','$http', 'fileUpload', function($scope, $http, fileUpload){
+    	  
+    	  $scope.getPdf = function(){
+    		  $http.get('http://localhost:8081/stage/downloadFile', {responseType: 'arraybuffer'})
+    		  .success(function (data) {
+    		   /*  var file = new Blob([data], {type: 'application/pdf'});
+    		    var fileURL = URL.createObjectURL(file);
+    		    console.log("eeee");
+    		    window.open(fileURL); */
+    		    var ieEDGE = navigator.userAgent.match(/Edge/g);
+                var ie = navigator.userAgent.match(/.NET/g); // IE 11+
+                var oldIE = navigator.userAgent.match(/MSIE/g); 
+                var name = "file";
+                var blob = new window.Blob([data.data], { type: 'application/pdf' });
+
+                if (ie || oldIE || ieEDGE) {
+                	console.log("eeee");
+                    var fileName = name+'.pdf';
+                    window.navigator.msSaveBlob(blob, fileName);
+                }
+                else {                
+                    var file = new Blob([ data], {
+                        type : 'application/pdf'
+                    });
+                    var fileURL = URL.createObjectURL(file);
+                    var a         = document.createElement('a');
+                    a.href        = fileURL; 
+                    a.target      = '_blank';
+                    a.download    = name+'.pdf';
+                    document.body.appendChild(a);
+                    a.click();
+                }    		    
+    		  });
+    		}
           
     	  $scope.code = {myFile: 'foo'};
           $scope.uploadFile = function(){

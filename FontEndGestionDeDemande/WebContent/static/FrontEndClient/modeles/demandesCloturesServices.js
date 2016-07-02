@@ -1,11 +1,11 @@
-app.factory('DemandeEncoursFactory', function($resource) {
+app.factory('DemandesCloturesFactory', function($resource) {
 
 	return $resource('http://localhost:8081/stage/demande/:verb/:id', {}, {
 		"get" : {
 			'method' : 'GET',
 			isArray : true,
 			'params' : {
-				verb : 'getDemandesEncours'
+				verb : 'getDemandesClotures'
 			}
 
 		},
@@ -21,19 +21,6 @@ app.factory('DemandeEncoursFactory', function($resource) {
 			'params' : {
 				verb : 'supprimer',
 				id : '@id'
-			}
-		}
-	})
-});
-
-app.factory('UpdateDemandeFactory', function($resource) {
-
-	return $resource('http://localhost:8081/stage/demande/:verb', {}, {
-	
-		"update" : {
-			'method' : 'Put',
-			'params' : {
-				verb : 'update'
 			}
 		}
 	})

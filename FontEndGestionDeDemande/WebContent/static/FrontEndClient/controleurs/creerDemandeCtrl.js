@@ -7,13 +7,22 @@ app
 						'CreerDemandeFactory',
 						'CreerPrerequisFactory',
 						'fileUpload',
+						'ListeDemandeDisponibleFactory',
 						'$location',
 						'$window',
 						'$http',
 						function($scope, TypeDemandeFactory,
 								CreerDemandeFactory, CreerPrerequisFactory,
-								fileUpload, $location, $window, $http) {
+								fileUpload,ListeDemandeDisponibleFactory, $location, $window, $http) {
+							
+							/* recuperation la liste de type de demande disponible */
+							$scope.listeDemandeDisponible = ListeDemandeDisponibleFactory
+									.select({}, function(data) {
+										console.log(data);
 
+									}, function(status) {
+
+									});
 							$scope.code = {									
 									myFile1 : 'vide',
 									myFile2 : 'vide',
@@ -53,7 +62,7 @@ app
 								
 								var demande = {
 									commentaire : null,
-									etat : "En cours",
+									etat : "En attente",
 									dateCreation : $scope.today,
 									dateModification : null,
 									typeDemande : {

@@ -1,4 +1,4 @@
-var app = angular.module('myApp', [ 'ngRoute', 'ngResource', 'ngMessages','ngCookies' ]);
+var app = angular.module('myApp', [ 'ngRoute', 'ngResource', 'ngMessages','ngCookies','ionic' ]);
 
 // ------------------------ routage
 
@@ -12,7 +12,7 @@ app.config(function($routeProvider,$httpProvider) {
 	}).when('/connexion', {
 		templateUrl : 'views/connexion.html',
 		controller : 'connexionCtrl'
-	}).when('/creerDemande', {
+	}).when('/creerDemande/:id', {
 		templateUrl : 'views/creer-demande.html',
 		controller : 'creerDemandeCtrl'
 	}).when('/gerer-compte', {
@@ -21,9 +21,15 @@ app.config(function($routeProvider,$httpProvider) {
 	}).when('/demandes-en-cours', {
 		templateUrl : 'views/demandes-en-cours.html',
 		controller : 'DemandesEnCoursCtrl'
-	}).when('/modifier-demande', {
+	}).when('/modifier-demande/:id', {
 		templateUrl : 'views/modifier-demande.html',
 		controller : 'modifierDemandeCtrl'
+	}).when('/demandes-clotures', {
+		templateUrl : 'views/demandes-clotures.html',
+		controller : 'demandesCloturesCtrl'
+	}).when('/historique-demande/:id', {
+		templateUrl : 'views/historique-demande.html',
+		controller : 'historiqueDemandeCtrl'
 	}).when('/inscription', {
 		templateUrl : 'views/inscription.html',
 		controller : 'inscriptionCtrl'

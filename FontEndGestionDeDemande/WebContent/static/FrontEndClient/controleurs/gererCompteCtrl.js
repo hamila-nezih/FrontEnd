@@ -1,5 +1,19 @@
-app.controller('gererCompteCtrl', [ '$scope', 'GererCompteFactory', '$location',
-		'$window', function($scope, GererCompteFactory, $location, $window) {
+app.controller('gererCompteCtrl', [
+		'$scope',
+		'GererCompteFactory',
+		'ListeDemandeDisponibleFactory',
+		'$location',
+		'$window',
+		function($scope, GererCompteFactory,ListeDemandeDisponibleFactory , $location, $window) {
+
+			/* recuperation la liste de type de demande disponible */
+			$scope.listeDemandeDisponible = ListeDemandeDisponibleFactory
+					.select({}, function(data) {
+						console.log(data);
+
+					}, function(status) {
+
+					});
 
 			/* recuperation les information du client */
 			$scope.client = GererCompteFactory.get({
@@ -72,7 +86,7 @@ app.controller('gererCompteCtrl', [ '$scope', 'GererCompteFactory', '$location',
 						document.getElementById(nom).disabled = true;
 					}
 
-				}else if (nom == 'mail') {
+				} else if (nom == 'mail') {
 					if ($scope.formulaireMail == 'Modifier') {
 						$scope.formulaireMail = 'Enregister';
 						document.getElementById(nom).disabled = false;
@@ -82,7 +96,7 @@ app.controller('gererCompteCtrl', [ '$scope', 'GererCompteFactory', '$location',
 						document.getElementById(nom).disabled = true;
 					}
 
-				}else if (nom == 'password') {
+				} else if (nom == 'password') {
 					if ($scope.formulairePassword == 'Modifier') {
 						$scope.formulairePassword = 'Enregister';
 						document.getElementById(nom).disabled = false;

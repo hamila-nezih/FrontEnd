@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="css/styleDemandesEncours.css">
+<link rel="stylesheet" type="text/css" href="css/styleDemandesClotures.css">
 
 <header>
 	<!-- 	<meta charset="utf-8">
@@ -38,8 +38,8 @@
 								<a href="#/page-accueil-connecter" class="btn btn-info"><i
 									class="glyphicon glyphicon-home"></i></a> <a
 									href="#/page-accueil-connecter" class="btn btn-info">demandes
-									Administrative</a> <a href="#/demandes-en-cours" class="btn btn-info">
-									Liste de demandes en cours</a>
+									Administrative</a> <a href="#/demandes-clotures" class="btn btn-info">
+									Liste de demandes cloturés</a>
 							</div>
 						</div>
 					</div>
@@ -53,21 +53,19 @@
 								<tr>
 									<th style="min-width: 80px;">Type demande</th>
 									<th style="min-width: 80px;">Etat</th>
-									<th style="min-width: 80px;">Date de creation</th>									
-									<th style="width: 20px;">&nbsp;</th>
-									<th style="width: 20px;">&nbsp;</th>
+									<th style="min-width: 80px;">Date de creation</th>	
+									<th style="min-width: 80px;">Date de cloturation</th>									
+									<th style="width: 40px;">&nbsp;</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr ng-repeat="demandeEncours in demandesEncours |orderBy:demandeEncours[2]">
-									<td>{{ demandeEncours[0]}}</td>
-									<td>{{ demandeEncours[1]}}</td>
-									<td>{{ demandeEncours[2] | date:'MM/dd/yyyy'}}</td>
-									<td><span ng-show="'{{demandeEncours[1]}}'!='En cours de traitement'">
-									<a ng-click="editDemande(demandeEncours[3])" style="cursor:  pointer;">modifier&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-									</a></span></td>
-									<td><a ng-click="showConfirm(demandeEncours[3])" style="cursor:  pointer;">
-											&nbsp;&nbsp;&nbsp;Annuler </a></td>
+								<tr ng-repeat="demandeCloture in demandesClotures |orderBy:demandeCloture[2]">
+									<td>{{ demandeCloture[0]}}</td>
+									<td>{{ demandeCloture[1]}}</td>
+									<td>{{ demandeCloture[2] | date:'MM/dd/yyyy'}}</td>
+									<td>{{ demandeCloture[4] | date:'MM/dd/yyyy'}}</td>
+									<td><a ng-click="historique(demandeCloture[3])"style="cursor:  pointer;">
+											Historique </a></td>
 									
 								</tr>
 							</tbody>
@@ -78,7 +76,6 @@
 		</div>
 	</div>
 </div>
-
 <br><br><br><br>
 <footer class="hidden-xs">
 
@@ -97,12 +94,19 @@
 							<a class="navbar-row2-font" href="#/creerDemande/{{typeDemande[0]}}">{{typeDemande[1]}}</a> <br>
 						</div>
 					</div>
+
 				</div>
+
 				<div class="navbar-row1-font col-lg-3">
 					<a class="navbar-row1-font " href="#/page-accueil-connecter">Demandes Cloturés</a><br>
 					<a class="navbar-row1-font" href="#/page-accueil-connecter">Demandes Cloturés</a>
 				</div>
 			</div>
+
+
 		</div>
+
+
 	</div>
+
 </footer>

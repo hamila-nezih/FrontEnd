@@ -113,3 +113,35 @@
 		</div>
 	</div>
 </div>
+<footer class="hidden-xs">
+
+	<div class="navbar-bottom navbar navbar-default  navbar-inverse">
+
+		<div class="container">
+			<div class="row">
+				<div class="navbar-row1-font col-lg-4">
+					<a class="navbar-row1-font" href="#/page-accueil-connecter">Accueil</a><br> <a
+						class="navbar-row1-font" href="#/page-accueil-connecter">Demandes Administratives</a><br>
+					<a class="navbar-row1-font" href="#/page-accueil-connecter">Mes Demandes</a>
+				</div>
+				<div class="navbar-row2-font col-lg-5">
+					<div ng-repeat="typeDemande in listeDemandeDisponible">
+						<div ng-show="'{{typeDemande[2]}}'=='true'">
+							<a class="navbar-row2-font" href="#/creerDemande/{{typeDemande[0]}}">{{typeDemande[1]}}</a> <br>
+						</div>
+					</div>
+
+				</div>
+				<div class="navbar-row1-font col-lg-3">
+					<a class="navbar-row1-font " href="#/demandes-en-cours">Demandes En Cours</a><br>
+					<a class="navbar-row1-font" href="#/demandes-clotures">Demandes Cloturés</a>
+				</div>
+			</div>
+
+
+		</div>
+
+
+	</div>
+
+</footer>

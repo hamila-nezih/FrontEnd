@@ -120,13 +120,14 @@ app.controller('login', [ '$scope', 'login', '$location',
                      							    password: 'hamila'  
                      							 }),
                      							
-                   					          headers : {'Content-Type': 'application/x-www-form-urlencoded'} 
-                   						}).success(function(data, status, header) {
+                   					          headers : {'Content-Type': 'application/x-www-form-urlencoded'                   			
+                   					        	 } 
+                   						}).success(function(data, status, headers) {
                    					        if("a"==="true"){
                    					            console.log("opa")
                    					        }else{
                    					           console.log(status.status);
-                   					           console.log($cookies.JSESSIONID);
+                   					           console.log(headers);
                    					           console.log(header);
                    					        }
                    					    });    

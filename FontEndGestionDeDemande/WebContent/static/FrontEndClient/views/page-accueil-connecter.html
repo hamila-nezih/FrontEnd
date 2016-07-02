@@ -61,7 +61,7 @@
 								<div ng-show="'{{typeDemande[2]}}'=='true'">
 
 									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#/creerDemande">
+									<a class="dropdown-item" href="#/creerDemande/{{typeDemande[0]}}">
 										{{typeDemande[1]}}</a>
 								</div>
 							</div>
@@ -75,7 +75,7 @@
 							<div class="dropdown-divider"></div>
 							<a class="dropdown-item" href="#/demandes-en-cours">Demandes En Cours</a>
 							<div class="divider"></div>
-							<a class="dropdown-item" href="#">Demandes Cloturés</a>
+							<a class="dropdown-item" href="#/demandes-clotures">Demandes Cloturés</a>
 						</div>
 					</div>
 					<div class="btn-group bg-primary" role="group">
@@ -134,10 +134,10 @@
 						<div class="dropdown-menu">
 
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item-petit-ecran dropdown-item" href="#">Demandes
+							<a class="dropdown-item-petit-ecran dropdown-item" href="#/demandes-en-cours">Demandes
 								En Cours</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item-petit-ecran dropdown-item" href="#">Demandes
+							<a class="dropdown-item-petit-ecran dropdown-item" href="#/demandes-clotures">Demandes
 								Cloturés</a>
 
 						</div></li>
@@ -151,20 +151,18 @@
 	</div>
 
 </header>
-<br>
-<br>
-<br>
-<br>
-<div class="well">
-	<div class="container">
-		<br> <br> <br> <br> <br> <br> <br>
-		<br>
+<br><br><br><br><br>
+<div class="well" style="border:1px solid #999;
+	border-radius:8px;
+	box-shadow:0 0 10px #999;
+	color: black;">
+<div class="container">
+	<br> <br> <br> <br> <br> <br> <br> <br>
 
-		<h1>on va mettre ici la Description general du site( les
-			differents services....)</h1>
-	</div>
-
+	<h1>on va mettre ici la Description general du site( les
+		differents services....)</h1>
 </div>
+</div><br>
 <footer class="hidden-xs">
 
 	<div class="navbar-bottom navbar navbar-default  navbar-inverse">
@@ -172,21 +170,21 @@
 		<div class="container">
 			<div class="row">
 				<div class="navbar-row1-font col-lg-4">
-					<a class="navbar-row1-font" href="">Accueil</a><br> <a
-						class="navbar-row1-font" href="">Demandes Administratives</a><br>
-					<a class="navbar-row1-font" href="">Mes Demandes</a>
+					<a class="navbar-row1-font" href="#/page-accueil-connecter">Accueil</a><br> <a
+						class="navbar-row1-font" href="#/page-accueil-connecter">Demandes Administratives</a><br>
+					<a class="navbar-row1-font" href="#/page-accueil-connecter">Mes Demandes</a>
 				</div>
 				<div class="navbar-row2-font col-lg-5">
 					<div ng-repeat="typeDemande in listeDemandeDisponible">
 						<div ng-show="'{{typeDemande[2]}}'=='true'">
-							<a class="navbar-row2-font" href="">{{typeDemande[1]}}</a> <br>
+							<a class="navbar-row2-font" href="#/creerDemande/{{typeDemande[0]}}">{{typeDemande[1]}}</a> <br>
 						</div>
 					</div>
 
 				</div>
 				<div class="navbar-row1-font col-lg-3">
-					<a class="navbar-row1-font " href="">Demandes Cloturés</a><br>
-					<a class="navbar-row1-font" href="">Demandes Cloturés</a>
+					<a class="navbar-row1-font " href="#/demandes-en-cours">Demandes En Cours</a><br>
+					<a class="navbar-row1-font" href="#/demandes-clotures">Demandes Cloturés</a>
 				</div>
 			</div>
 
