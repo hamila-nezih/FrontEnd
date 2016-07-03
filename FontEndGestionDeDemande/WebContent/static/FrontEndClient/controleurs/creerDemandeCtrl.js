@@ -8,21 +8,18 @@ app
 						'CreerPrerequisFactory',
 						'fileUpload',
 						'ListeDemandeDisponibleFactory',
+						'$routeParams',
 						'$location',
 						'$window',
 						'$http',
 						function($scope, TypeDemandeFactory,
 								CreerDemandeFactory, CreerPrerequisFactory,
-								fileUpload,ListeDemandeDisponibleFactory, $location, $window, $http) {
+								fileUpload,ListeDemandeDisponibleFactory, $routeParams, $location, $window, $http) {
+							console.log($routeParams.id);
 							
 							/* recuperation la liste de type de demande disponible */
 							$scope.listeDemandeDisponible = ListeDemandeDisponibleFactory
-									.select({}, function(data) {
-										console.log(data);
-
-									}, function(status) {
-
-									});
+									.select({}, function(data) {}, function(status) {});
 							$scope.code = {									
 									myFile1 : 'vide',
 									myFile2 : 'vide',
@@ -35,9 +32,9 @@ app
 							 * disponible
 							 */
 							$scope.typeDemande = TypeDemandeFactory.get({
-								id : 1
+								id : $routeParams.id
 							}, function(data) {
-								console.log(data);
+								console.log($routeParams.id);
 
 							}, function(status) {
 							});
