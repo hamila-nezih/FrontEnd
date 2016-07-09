@@ -81,17 +81,20 @@ app.factory('CreerPrerequisFactory', function($resource) {
 app.service('fileUpload', ['$http','$location', function ($http,$location) {
     this.uploadFileToUrl = function(files, uploadUrl, idD, idTypeDocument){
          var file = new FormData();
-         console.log(files.name);
         file.append('file', files);
-        file.append('name', files.name);  
+        file.append('name', files.name);
+        file.append('idD', idD);
+        file.append('idTypeDocument', idTypeDocument);
      $http.post(uploadUrl,file, {
             transformRequest: angular.identity,
             headers: {'Content-Type':undefined}
         })
         .success(function(){
+        	console.log("success");
         })
         .error(function(){
-      	 
+        	console.log("erreur");
+
         }); 
     }
 }]);

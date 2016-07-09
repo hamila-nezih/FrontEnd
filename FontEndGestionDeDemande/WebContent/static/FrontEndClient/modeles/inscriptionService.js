@@ -10,6 +10,7 @@ app.factory('ClientFactory', function($resource) {
 		},
 		"create" : {
 			'method' : 'POST',
+			isArray : true,
 			'params' : {
 				verb : 'create'
 			}

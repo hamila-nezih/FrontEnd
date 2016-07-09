@@ -3,39 +3,27 @@
 <header>
 	<!-- 	<meta charset="utf-8">
  -->
-
 	<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
 		<div class="container">
 
 
 			<div class="collpase navbar-collapse" id="button">
 				<a type="button" class=" pull-right btn btn-info"
-					style="margin-top: 20px" href="#/">Déconnecter <span
+					href="#/" style="margin-top: 15px">Déconnecter <span
 					class="glyphicon glyphicon-log-out"></span></a> <a type="button"
-					class=" pull-right btn btn-info" href="#/gerer-compte"
-					style="margin-top: 20px">Gérer Compte <span
-					class="glyphicon glyphicon-cog"></span>
+					class=" pull-right btn btn-info" href="#/gerer-compte" style="margin-top: 15px">gerer-compte
+					<span class="glyphicon glyphicon-cog"></span>
 				</a>
 				<div class="image">
-					<img src="images/logo.jpg"
-						class="img-circle img-circle-logo   hidden-xs hidden-sm"
+					<img src="images/logo.png" class="   hidden-xs hidden-sm"
 						alt="Cinque Terre">
-					<h4 class=" pull-right">Bonjour Nom Prenom</h4>
-
+					<h5 class="titre-nom">Bonjour&nbsp; {{ClientConnecterProperties.prenom}}&nbsp;&nbsp;{{ClientConnecterProperties.nom}} </h5>
 				</div>
 			</div>
 
 		</div>
 	</div>
-
-	<!-- <div class="image">
-	
-	<img src="images/image.jpg"
-	style="margin:0px auto;display:block;margin-top: 70px;"
-		class="img-rounded img-circle-accueil   hidden-xs hidden-sm"
-		alt="Cinque Terre">
-		</div>  -->
-	<h2>
+	<h2 class="titre">
 		Bienvenu sur le site de gestion des demandes<br> Administratives
 	</h2>
 	<!--*************************************************************************  -->
@@ -88,8 +76,32 @@
 									<span class="glyphicon glyphicon-remove-sign"
 										style="color: #3071a9"></span>
 								</button>
-							</span> <input id="champRechecher" type="text" class="form-control"
-								placeholder="Recherchez" aria-describedby="basic-addon1">
+							</span>
+							<div>
+								<input id="champRechecher" type="text"
+									class="form-control dropdown-toggle" data-toggle="dropdown"
+									aria-haspopup="true" aria-expanded="false"
+									placeholder="Recherchez" aria-describedby="basic-addon1"
+									ng-model="recherche">
+								<div class="dropdown-menu dropdown-menu1">
+									<div class="dropdown-divider"></div>
+
+									<div
+										ng-repeat="typeDemande in listeDemandeDisponible | filter : recherche">
+										<div ng-show="'{{typeDemande[2]}}'=='true'">
+											<a class="dropdown-item" href="#/creerDemande/{{typeDemande[0]}}">
+												{{typeDemande[1]}}</a>
+											<div class="divider"></div>
+										</div>
+									</div>
+									<div ng-repeat="demandes in mesDemandes | filter : recherche">
+										<a class="dropdown-item" href="{{demandes.lien}}">
+											{{demandes.demande}}</a>
+										<div class="divider"></div>
+									</div>
+								</div>
+							</div>
+
 							<span class="input-group-btn">
 								<button class="btn btn-default" type="button">
 									<span class="glyphicon glyphicon-search" style="color: #3071a9"></span>
@@ -151,18 +163,19 @@
 	</div>
 
 </header>
-<br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
 <div class="well" style="border:1px solid #999;
 	border-radius:8px;
 	box-shadow:0 0 10px #999;
 	color: black;">
 <div class="container">
+<h2 style="text-align: center;">Cette zone est à remplir par le
+			client.</h2>
 	<br> <br> <br> <br> <br> <br> <br> <br>
 
-	<h1>on va mettre ici la Description general du site( les
-		differents services....)</h1>
+	
 </div>
-</div><br>
+</div><br><br><br><br><br><br><br><br><br><br><br>
 <footer class="hidden-xs">
 
 	<div class="navbar-bottom navbar navbar-default  navbar-inverse">

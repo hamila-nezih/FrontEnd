@@ -1,4 +1,4 @@
-var app = angular.module('myApp', [ 'ngRoute', 'ngResource', 'ngMessages','ngCookies','ionic' ]);
+var app = angular.module('myApp', [ 'ngRoute', 'ngResource', 'ngMessages','ngCookies', 'ngMaterial']);
 
 // ------------------------ routage
 
@@ -15,13 +15,15 @@ app.config(function($routeProvider,$httpProvider) {
 	}).when('/creerDemande/:id', {
 		templateUrl : 'views/creer-demande.html',
 		controller : 'creerDemandeCtrl'
+	}).when('/errors', {
+		templateUrl : 'views/errors.html'
 	}).when('/gerer-compte', {
 		templateUrl : 'views/gerer-compte.html',
 		controller : 'gererCompteCtrl'
 	}).when('/demandes-en-cours', {
 		templateUrl : 'views/demandes-en-cours.html',
 		controller : 'DemandesEnCoursCtrl'
-	}).when('/modifier-demande/:id', {
+	}).when('/modifier-demande/:id/:idtype', {
 		templateUrl : 'views/modifier-demande.html',
 		controller : 'modifierDemandeCtrl'
 	}).when('/demandes-clotures', {

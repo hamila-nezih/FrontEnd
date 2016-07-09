@@ -1,4 +1,15 @@
 @CHARSET "ISO-8859-1";
+.titre2{
+	padding-top: 0px;
+	color: #2a6496;
+	font-size: 22px;
+	font-weight: 300;
+	font-family: "times new roman", times, serif;
+	font-weight: 300;
+	margin-top: 20px;
+	
+}
+
 .btn-breadcrumb .btn.btn-success:not(:last-child):after {
   border-left: 10px solid #5cb85c;
 }
@@ -113,16 +124,6 @@ h4{
 	width: 70px;
 	height: 40px;
 	padding-bottom: 0px;
-}
-.titre {
-	padding-top: 0px;
-	text-align: center;
-	color: #0000ff;
-	font-size: 22px;
-	font-weight: 300;
-	font-family: "times new roman", times, serif;
-	font-weight: 300;
-	margin-top: 100px;
 }
 .asterisqueHide{
 	padding-top: 0px;

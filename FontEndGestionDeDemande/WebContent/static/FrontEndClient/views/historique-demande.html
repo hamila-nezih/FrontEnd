@@ -7,17 +7,23 @@
 	<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
 		<div class="container">
 
+
 			<div class="collpase navbar-collapse" id="button">
-				<a type="button" class=" pull-right btn btn-info" href="#/">Déconnecter
-					<span class="glyphicon glyphicon-log-out"></span>
-				</a> <a type="button" class=" pull-right btn btn-info"
-					href="#/page-accueil-connecter">Accueil <span
-					class=" glyphicon glyphicon-home"></span>
+				<a type="button" class=" pull-right btn btn-info"
+					href="#/" style="margin-top: 15px">Déconnecter <span
+					class="glyphicon glyphicon-log-out"></span></a> <a type="button"
+					class=" pull-right btn btn-info" href="#/gerer-compte" style="margin-top: 15px">gerer-compte
+					<span class="glyphicon glyphicon-cog"></span>
 				</a>
-				<h4 class=" pull-right">Bonjour Nom Prenom</h4>
-				<img src="images/logo.jpg" style="margin-left: 200px"
-					class="img-circle " alt="Cinque Terre">
+				<div class="image">
+					<img src="images/logo.png" class="   hidden-xs hidden-sm"
+						alt="Cinque Terre">
+
+					<h5 class="titre-nom">Bonjour&nbsp; {{ClientConnecterProperties.prenom}}&nbsp;&nbsp;{{ClientConnecterProperties.nom}} </h5>
+
+				</div>
 			</div>
+
 		</div>
 	</div>
 
@@ -26,6 +32,7 @@
 	</h2>
 
 </header>
+<br>
 
 <div class="container">
 	<div class="row">
@@ -69,21 +76,21 @@
 								</tr>
 							</tbody>
 						</table>
-						<div ng-show=affichierPrerequis>
+						<div ng-show=affichierPrerequis >
 							<h2 class="titre2" style="display: inline;">Prerequis :</h2>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="tag label label-info"
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="tag label label-info"
 								style="font-size: 14px;"> <span>Affichier</span> <a
 								ng-click="affichierPrerequisFonction()"><i
 									class="glyphicon glyphicon-chevron-down"
-									style="color: #3071a9;"></i></a>
+									style="color: white;"></i></a>
 							</span>
 						</div>
 						<div ng-hide=affichierPrerequis>
 							<h2 class="titre2" style="display: inline;">Prerequis :</h2>
-							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="tag label label-info"
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="tag label label-info"
 								style="font-size: 14px;"> <span>cacher</span> <a
 								ng-click="cacherPrerequisFonction()"><i
-									class="glyphicon glyphicon-chevron-up" style="color: #3071a9;"></i></a>
+									class="glyphicon glyphicon-chevron-up" style="color: white;"></i></a>
 							</span>
 						</div>
 						<div ng-hide=affichierPrerequis>
@@ -107,19 +114,19 @@
 						<br>
 						<div ng-show=affichierDocument>
 							<h2 class="titre2" style="display: inline;">Documents :</h2>
-							&nbsp;&nbsp;&nbsp; <span class="tag label label-info"
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="tag label label-info"
 								style="font-size: 14px;"> <span>Affichier</span> <a
 								ng-click="affichierDocumentFonction()"><i
 									class="glyphicon glyphicon-chevron-down"
-									style="color: #3071a9;"></i></a>
+									style="color:white;"></i></a>
 							</span>
 						</div>
 						<div ng-hide=affichierDocument>
-							<h2 class="titre2" style="display: inline;">Documents:</h2>
-							&nbsp;&nbsp;&nbsp; <span class="tag label label-info"
+							<h2 class="titre2" style="display: inline;">Documents :</h2>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="tag label label-info"
 								style="font-size: 14px;"> <span>cacher</span> <a
 								ng-click="cacherDocumentFonction()"><i
-									class="glyphicon glyphicon-chevron-up" style="color: #3071a9;"></i></a>
+									class="glyphicon glyphicon-chevron-up" style="color:white;"></i></a>
 							</span>
 						</div>
 						<div ng-hide=affichierDocument>
@@ -152,7 +159,7 @@
 		</div>
 	</div>
 </div>
-<br><br><br><br>
+<br><br><br><br><br>
 <footer class="hidden-xs">
 
 	<div class="navbar-bottom navbar navbar-default  navbar-inverse">

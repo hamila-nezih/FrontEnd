@@ -6,22 +6,30 @@
 	<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
 		<div class="container">
 
+
 			<div class="collpase navbar-collapse" id="button">
 				<a type="button" class=" pull-right btn btn-info"
-					href="#/">Déconnecter <span
+					href="#/" style="margin-top: 15px">Déconnecter <span
 					class="glyphicon glyphicon-log-out"></span></a> <a type="button"
-					class=" pull-right btn btn-info" href="#/page-accueil-connecter">Accueil <span class=" glyphicon glyphicon-home"></span>
+					class=" pull-right btn btn-info" href="#/page-accueil-connecter" style="margin-top: 15px">Accueil
+					<span class="glyphicon glyphicon-home"></span>
 				</a>
-				<h4 class=" pull-right">Bonjour Nom Prenom</h4>
-				<img src="images/logo.jpg" style="margin-left: 200px"class="img-circle " alt="Cinque Terre">
+				<div class="image">
+					<img src="images/logo.png" class="   hidden-xs hidden-sm"
+						alt="Cinque Terre">
+
+					<h5 class="titre-nom">Bonjour&nbsp; {{ClientConnecterProperties.prenom}}&nbsp;&nbsp;{{ClientConnecterProperties.nom}} </h5>
+
+				</div>
 			</div>
+
 		</div>
 	</div>
-	<h2>
+	<h2 class="titre">
 		Bienvenu sur le site de gestion des demandes<br> Administratives
 	</h2>
 </header>
-
+<br><br><br><br><br>
 <div class="container">
 	<div class="row">
 		<div class="col-lg-2"></div>
@@ -112,7 +120,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div><br><br><br><br><br><br><br>
 <footer class="hidden-xs">
 
 	<div class="navbar-bottom navbar navbar-default  navbar-inverse">

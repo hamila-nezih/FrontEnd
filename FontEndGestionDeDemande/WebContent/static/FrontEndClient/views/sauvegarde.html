@@ -1,12 +1,172 @@
-<!DOCTYPE html>
-<html>
-<body>
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+<link rel="stylesheet" type="text/css" href="css/styleCreerDemande.css">
+<header>
+	<!-- 	<meta charset="utf-8">
+ -->
 
-<form>
-  <input type="radio" name="gender" value="male" checked> Male<br>
-  <input type="radio" name="gender" value="female"> Female<br>
-  <input type="radio" name="gender" value="other"> Other
-</form>
+	<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
 
-</body>
-</html>
+
+			<div class="collpase navbar-collapse" id="button">
+				<a type="button" class=" pull-right btn btn-info"
+					href="#/" style="margin-top: 15px">Déconnecter <span
+					class="glyphicon glyphicon-log-out"></span></a> <a type="button"
+					class=" pull-right btn btn-info" href="#/gerer-compte" style="margin-top: 15px">gerer-compte
+					<span class="glyphicon glyphicon-cog"></span>
+				</a>
+				<div class="image">
+					<img src="images/logo.png" class="   hidden-xs hidden-sm"
+						alt="Cinque Terre">
+
+					<h5 class="titre-nom">Bonjour&nbsp; {{ClientConnecterProperties.prenom}}&nbsp;&nbsp;{{ClientConnecterProperties.nom}} </h5>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<h2 class="titre">
+		Bienvenu sur le site de gestion des demandes<br> Administratives
+	</h2>
+</header>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-1"></div>
+		<div class="col-md-10">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<div class="container">
+						<div class="row">
+							<div class="btn-group btn-breadcrumb">
+								<a href="#/page-accueil-connecter" class="btn btn-info"><i
+									class="glyphicon glyphicon-home"></i></a> <a
+									href="#/page-accueil-connecter" class="btn btn-info">demandes
+									Administrative</a> <a href="#/page-accueil-connecter" class="btn btn-info">
+									{{typeDemande.titre}}</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="panel-body">
+					<h2 class="titre2">Les champs précédés par un astérisque ( * )
+						sont obligatoires.</h2>
+
+					<form name="createClientForm" class="form-horizontal"
+						ng-submit="modifierDemande()" novalidate>
+						
+						<div class="panel-body">
+							<h2 class="titre2"
+								style="margin-bottom: 30px; margin-left: 135px; margin-top: 30px;">Prerequis</h2>
+							<div
+								ng-repeat="prerequis in prerequisDemande">
+								<div class="form-group">
+									<label for="inputfirstname" class="col-md-4 control-label">
+										{{prerequis[2]}} : <span class="asterisque"
+										ng-show={{prerequis[3]}}>*</span> <span
+										class="asterisqueHide" ng-hide={{prerequis[3]}}>
+									</span>
+									</label>
+									<div ng-show="'{{prerequis[2]}}'=='Civilite'" class="col-md-6">
+										<label style="margin-left: 15px;" ng-repeat="option in options"> <input
+											type="radio" ng-model="$parent.selected" ng-value="option" id="{{option}}" />{{option}}
+										</label>
+									</div>
+									<div class="col-md-6"
+										ng-hide="'{{prerequis[2]}}'=='Civilite'">
+										<input type="{{prerequis[4]}}" class="form-control"
+											name="{{prerequis[2]}}" id="{{prerequis[2]}}"
+											placeholder="{{prerequis[1]}}"
+											  required ng-maxlength="20" />
+										<div class="field-message"
+											ng-messages="createClientForm.nom.$error"
+											ng-if='createClientForm.$submitted' ng-cloak>
+											<div ng-message="maxlength">{{msg.msgTailleMax}}</div>
+											<div ng-message="required">{{msg.msgRequired}}</div>
+										</div>
+									</div>
+									
+								</div>
+							</div>
+							<h2 class="titre2"
+								style="margin-bottom: 30px; margin-left: 135px; margin-top: 30px;">Documents</h2>
+
+							<div
+								ng-repeat="document in DocumentsDemande ">
+								<div class="form-group">
+									<label  class="col-md-4 control-label">
+										{{document[2]}} : <span class="asterisque"
+										ng-show={{document[4]}}>*</span> <span
+										class="asterisqueHide" ng-hide={{document[4]}}>
+									</span>
+									</label>
+									<div class="col-md-8" ng-show="modifier.m{{document[5]}}">
+										<input type="hidden" name="MAX_FILE_SIZE" value="100000" /> <input
+											type="file" name="icone" id="icone" ng-model="hoto"
+											file-model="code.myFile{{document[5]}}" />
+
+									</div>
+									<div class="col-md-8" ng-hide="modifier.m{{document[5]}}">
+									
+									    <span  class="col-md-4">  {{document[3]}}&nbsp;&nbsp;&nbsp;</span>
+									    <a  class="col-md-3"ng-click="download(document[0],document[3])" style="cursor:  pointer;">Télécharger
+									       </a>
+									    <a  class="col-md-4" ng-click="modifierFonction(document[5])" style="cursor:  pointer;">
+											Modifier </a>
+									</div>
+								</div>
+							</div>
+
+						
+				</div>
+				<div class="panel-footer">
+					<div class="form-group">
+						<div class="espaceMarginA">
+							<input type="submit" name="valider" value="Envoyer"
+								class=" btn-primary btn btn-default"> <a href="#/">
+								Cancel </a>
+						</div>
+					</div>
+				</div>
+				</form>
+			</div>
+			</div>
+		</div>
+	</div>
+</div>
+<footer class="hidden-xs">
+
+	<div class="navbar-bottom navbar navbar-default  navbar-inverse">
+
+		<div class="container">
+			<div class="row">
+				<div class="navbar-row1-font col-lg-4">
+					<a class="navbar-row1-font" href="#/page-accueil-connecter">Accueil</a><br> <a
+						class="navbar-row1-font" href="#/page-accueil-connecter">Demandes Administratives</a><br>
+					<a class="navbar-row1-font" href="#/page-accueil-connecter">Mes Demandes</a>
+				</div>
+				<div class="navbar-row2-font col-lg-5">
+					<div ng-repeat="typeDemande in listeDemandeDisponible">
+						<div ng-show="'{{typeDemande[2]}}'=='true'">
+							<a class="navbar-row2-font" href="#/creerDemande/{{typeDemande[0]}}">{{typeDemande[1]}}</a> <br>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="navbar-row1-font col-lg-3">
+					<a class="navbar-row1-font " href="#//demandes-en-cours">Demandes Cloturés</a><br>
+					<a class="navbar-row1-font" href="#/demandes-clotures">Demandes Cloturés</a>
+				</div>
+			</div>
+
+
+		</div>
+
+
+	</div>
+
+</footer>

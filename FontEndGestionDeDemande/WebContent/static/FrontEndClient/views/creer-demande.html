@@ -8,23 +8,24 @@
 
 	<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
 		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target="#example">
-					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-			</div>
+
+
 			<div class="collpase navbar-collapse" id="button">
 				<a type="button" class=" pull-right btn btn-info"
-					href="#/">Déconnecter <span
+					href="#/" style="margin-top: 15px">Déconnecter <span
 					class="glyphicon glyphicon-log-out"></span></a> <a type="button"
-					class=" pull-right btn btn-info" href="#/gerer-compte">Gerer
-					compte <span class="glyphicon glyphicon-cog"></span>
+					class=" pull-right btn btn-info" href="#/gerer-compte" style="margin-top: 15px">gerer-compte
+					<span class="glyphicon glyphicon-cog"></span>
 				</a>
-				<h4 class=" pull-right">Bonjour Nom Prenom</h4>
-				<img src="images/logo.jpg" class="img-circle " alt="Cinque Terre">
+				<div class="image">
+					<img src="images/logo.png" class="   hidden-xs hidden-sm"
+						alt="Cinque Terre">
+
+					<h5 class="titre-nom">Bonjour&nbsp; {{ClientConnecterProperties.prenom}}&nbsp;&nbsp;{{ClientConnecterProperties.nom}} </h5>
+
+				</div>
 			</div>
+
 		</div>
 	</div>
 	<h2 class="titre">
@@ -105,7 +106,7 @@
 									<div class="col-md-8">
 										<input type="hidden" name="MAX_FILE_SIZE" value="100000" /> <input
 											type="file" name="icone" id="icone" ng-model="hoto"
-											file-model="code.myFile{{document.id}}" />
+											file-model="code.myFile{{document.ordre}}" />
 
 									</div>
 								</div>

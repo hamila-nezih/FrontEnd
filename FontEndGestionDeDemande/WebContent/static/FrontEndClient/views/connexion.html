@@ -6,12 +6,11 @@
 		<div class="container">
 
 
-			<div class="collpase navbar-collapse" id="button">
+			<div class="collpase navbar-collapse" style="text-align: center;">
 
 
 				<div class="image">
-					<img src="images/logo.jpg"
-						class="img-circle img-circle-logo   hidden-xs hidden-sm"
+					<img src="images/logo.png" class="  hidden-xs hidden-sm"
 						alt="Cinque Terre">
 
 					<h5 class="titre-connexion">Bienvenu sur le site de gestion
@@ -26,7 +25,7 @@
 	<div class="image">
 
 		<img src="images/image.jpg"
-			style="margin: 0px auto; display: block; margin-top: 70px;"
+			style="margin: 0px auto; display: block; margin-top: 90px;"
 			class="img-rounded img-circle-accueil   hidden-xs hidden-sm"
 			alt="Cinque Terre">
 	</div>
@@ -40,41 +39,93 @@
 				<div class="panel-heading">
 					<h1 class="panel-title">Se connecter</h1>
 				</div>
-				<div class="panel-body">
 
-					<form class="form-horizontal">
+
+				<form class="form-horizontal" name="connexionForm"
+					ng-submit="connexionForm.$valid && connexion()" novalidate>
+					<div class="panel-body">
+						<div class="field-message" ng-show="erreur">
+							<div style="text-align: center;">{{msg.msgErreurConnexion}}</div>
+						</div>
 						<div class="form-group">
 							<label for="inputfirstname" class="col-md-2 control-label">
 							</label>
 							<div class="col-md-8">
-								<input type="text" class="form-control" id="inputfirstname"
-									placeholder="E-mail" />
+								<input type="text" class="form-control" id="login" name="login"
+									placeholder="E-mail" ng-model="login" required="required" />
+								<div class="field-message"
+									ng-messages="connexionForm.login.$error"
+									ng-if='connexionForm.$submitted' ng-cloak>
+									<div ng-message="required">{{msg.msgRequired}}</div>
+								</div>
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="inputlastname" class="col-md-2 control-label">
 							</label>
 							<div class="col-md-8">
-								<input type="text" class="form-control" id="inputlastname"
-									placeholder="Mot de passe " />
+								<input type="password" class="form-control" id="password"
+									name="password" placeholder="Mot de passe" ng-model="password"
+									required />
+								<div class="field-message"
+									ng-messages="connexionForm.password.$error"
+									ng-if='connexionForm.$submitted' ng-cloak>
+									<div ng-message="required">{{msg.msgRequired}}</div>
+								</div>
 							</div>
 						</div>
 
-
-
-
-					</form>
-				</div>
-				<div class="panel-footer">
-					<div class="form-group">
-						<div class="espaceMarginA">
-							<a type="button" class="btn-primary btn btn-default"
-								ng-click="connexion()">Connexion</a> <a
-								href="#/"> Cancel </a>
+					</div>
+					<div class="panel-footer">
+						<div class="form-group">
+							<div class="espaceMarginA">
+								<input type="submit" name="valider" value="Connexion"
+									class=" btn-primary btn btn-default "> <a href="#/">
+									Cancel </a>
+							</div>
 						</div>
 					</div>
-				</div>
+				</form>
+
 			</div>
 		</div>
 	</div>
 </div>
+<br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<footer class="hidden-xs">
+
+	<div class="navbar-bottom navbar navbar-default  navbar-inverse">
+
+		<div class="container">
+			<div class="row">
+				<div class="navbar-row1-font col-lg-4">
+					<a class="navbar-row1-font" href="#/connexion"">Accueil</a><br>
+					<a class="navbar-row1-font" href="#/connexion"">Demandes
+						Administratives</a><br> <a class="navbar-row1-font"
+						href="#/connexion"">Mes Demandes</a>
+				</div>
+				<div class="navbar-row2-font col-lg-5">
+					<div ng-repeat="typeDemande in listeDemandeDisponible">
+						<div ng-show="'{{typeDemande[2]}}'=='true'">
+							<a class="navbar-row2-font" href="#/connexion"">{{typeDemande[1]}}</a>
+							<br>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="navbar-row1-font col-lg-3">
+					<a class="navbar-row1-font " href="#/connexion"">Demandes
+						Cloturés</a><br> <a class="navbar-row1-font" href="#/connexion"">Demandes
+						Cloturés</a>
+				</div>
+			</div>
+
+
+		</div>
+
+
+	</div>
+
+</footer>

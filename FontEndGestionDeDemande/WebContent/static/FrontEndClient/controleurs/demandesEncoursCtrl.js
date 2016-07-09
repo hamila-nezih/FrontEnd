@@ -4,10 +4,17 @@ app.controller('DemandesEnCoursCtrl', [
                            		'ListeDemandeDisponibleFactory',
                            		'UpdateDemandeFactory',
                            		'$location',
-                           		'$window',
-                           		'$ionicPopup',
-                           		function($scope, DemandeEncoursFactory,ListeDemandeDisponibleFactory, UpdateDemandeFactory, $location, $window,$ionicPopup) {
+                           		'ClientProperties',
+                           		'$mdDialog', '$mdMedia',
+                           		function($scope, DemandeEncoursFactory,ListeDemandeDisponibleFactory, 
+                           				UpdateDemandeFactory, $location, ClientProperties,$mdDialog, $mdMedia) {
                            			
+                           			
+                           			/* recuperation nom et prenom*/
+        							$scope.ClientConnecterProperties ={
+        									nom : ClientProperties.getNom(),
+        									prenom : ClientProperties.getPrenom()
+        							};
                            			/* recuperation le date du systeme */
 									var today = new Date();
 									var dd = today.getDate();
@@ -21,48 +28,61 @@ app.controller('DemandesEnCoursCtrl', [
 										mm = '0' + mm
 									}								
 									$scope.today = yyyy + '-' + mm + '-' + dd;
-                           			// A confirm dialog
-        							$scope.showConfirm = function(id) {
-        								var confirmPopup = $ionicPopup
-        										.confirm({
-        											title : 'Annuler une demande',
-        											template : 'Êtes-vous sûr vous voulez annuler la demande?'
-        										});
-        								confirmPopup.then(function(res) {
-        									if (res) {
-        										var demande = {
-        											id : id ,
-        											etat : "Annuler",
-        											dateModification : $scope.today
-        										};
-        										UpdateDemandeFactory.update(demande,function(){
-        											 window.location.reload();
-        										});
-        									} else {
-        									}
-        								});
-        							};                          			
-                           			
+                           			// A confirm dialog  
+									$scope.showConfirm = function(id,ev) {
+
+										var confirm = $mdDialog
+												.confirm()
+												.title('Annuler une demande.')
+												.textContent('Êtes-vous sûr vous voulez annuler cette demande?')
+												.ariaLabel('Lucky day')
+												.targetEvent(ev)
+												.cancel('Cancel')
+												.ok('Ok');
+												
+										$mdDialog
+												.show(confirm)
+												.then(function() {
+															var demande = {
+				        											id : id ,
+				        											etat : "Annulée",
+				        											dateModification : $scope.today
+				        										};
+				        										UpdateDemandeFactory.update(demande,function(){
+				        											/* mettre à jourla liste  des demandes encours  */
+				        		                           			$scope.demandesEncours = DemandeEncoursFactory.get({
+				        		                        				id : ClientProperties.getId()
+				        		                        			}, function(data) {
+				        		                        				console.log(data);                        				
+				        		                        			}, function(status) {
+
+				        		                        			});
+				        										});													
+				        										},
+														function() {}
+				        							);
+									};                       			
                            			
                            			/* recuperation la liste des demandes disponible*/
                                     $scope.listeDemandeDisponible = ListeDemandeDisponibleFactory
                         			.select({}, function(data) {
+                        				
                         			}, function(status) {
 
                         			});
                            			/* recuperation la liste  de demande creer par le client(id=idClient) */
                            			$scope.demandesEncours = DemandeEncoursFactory.get({
-                        				id : "1"
+                        				id : ClientProperties.getId()
                         			}, function(data) {
-                        				// selectionner le bouton radio
                         				console.log(data);                        				
                         			}, function(status) {
 
                         			});
                            			
                            			/* callback for ng-click 'editDemande': */
-                        			$scope.editDemande = function(DemandeId) {
-                        				$location.path('/modifier-demande/' + DemandeId);
+                        			$scope.editDemande = function(DemandeId,typeDemandeID) {
+                        				console.log(typeDemandeID);
+                        				$location.path('/modifier-demande/' + DemandeId +'/'+typeDemandeID);
                         			};
                            			
                            				

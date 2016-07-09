@@ -3,10 +3,18 @@ app.controller(
 						'$scope',
 						'MsgConfig',
 						'ClientFactory',
+						'ListeDemandeDisponibleFactory',
 						'$location',
-						'$window',
-						function($scope, MsgConfig, ClientFactory, $location,
-								$window) {
+						'ClientProperties',
+						function($scope, MsgConfig, ClientFactory, ListeDemandeDisponibleFactory, $location,
+								ClientProperties) {
+							
+							/* recuperation la liste de type de demande disponible */
+							$scope.listeDemandeDisponible = ListeDemandeDisponibleFactory
+									.select({}, function(data) {}, function(status) {
+										$location.path('/errors');
+									});
+
 
 							/* callback for 'message' */
 							$scope.msg = MsgConfig;
@@ -15,10 +23,14 @@ app.controller(
 							 * callback for create new client
 							 */
 							$scope.createNewClient = function() {
-								ClientFactory.create($scope.client, function() {
+								console.log($scope.client.dateNaissance);
+								ClientFactory.create($scope.client, function(data) {
+									ClientProperties.setNom($scope.client.nom);
+									ClientProperties.setPrenom($scope.client.prenom);
+									ClientProperties.setId(data[0]['id']);
 									$location.path('/page-accueil-connecter');
 								}, function(status) {
-									console.log($scope.client);
+									$location.path('/errors');
 								});
 							}
 							/* recuperation le date du systeme */

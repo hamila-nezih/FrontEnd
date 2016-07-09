@@ -3,20 +3,26 @@
 <header>
 	<!-- 	<meta charset="utf-8">
  -->
-	<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
 		<div class="container">
 
+
 			<div class="collpase navbar-collapse" id="button">
-				<a type="button" class=" pull-right btn btn-info" href="#/">Déconnecter
-					<span class="glyphicon glyphicon-log-out"></span>
-				</a> <a type="button" class=" pull-right btn btn-info"
-					href="#/page-accueil-connecter">Accueil <span
-					class=" glyphicon glyphicon-home"></span>
+				<a type="button" class=" pull-right btn btn-info"
+					href="#/" style="margin-top: 15px">Déconnecter <span
+					class="glyphicon glyphicon-log-out"></span></a> <a type="button"
+					class=" pull-right btn btn-info" href="#/gerer-compte" style="margin-top: 15px">gerer-compte
+					<span class="glyphicon glyphicon-cog"></span>
 				</a>
-				<h4 class=" pull-right">Bonjour Nom Prenom</h4>
-				<img src="images/logo.jpg" style="margin-left: 200px"
-					class="img-circle " alt="Cinque Terre">
+				<div class="image">
+					<img src="images/logo.png" class="   hidden-xs hidden-sm"
+						alt="Cinque Terre">
+
+					<h5 class="titre-nom">Bonjour&nbsp; {{ClientConnecterProperties.prenom}}&nbsp;&nbsp;{{ClientConnecterProperties.nom}} </h5>
+
+				</div>
 			</div>
+
 		</div>
 	</div>
 	
@@ -76,7 +82,7 @@
 		</div>
 	</div>
 </div>
-<br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
 <footer class="hidden-xs">
 
 	<div class="navbar-bottom navbar navbar-default  navbar-inverse">

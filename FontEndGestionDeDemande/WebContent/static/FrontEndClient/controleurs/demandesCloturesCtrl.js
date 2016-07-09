@@ -4,9 +4,16 @@ app.controller('demandesCloturesCtrl', [
 		'ListeDemandeDisponibleFactory',
 		'fileUpload',
 		'$location',
-		'$window',
+		'ClientProperties',
 		'$http',
-		function($scope, DemandesCloturesFactory,ListeDemandeDisponibleFactory, fileUpload, $location,	$window, $http) {
+		function($scope, DemandesCloturesFactory,ListeDemandeDisponibleFactory, fileUpload, $location,	ClientProperties, $http) {
+
+
+			/* recuperation nom et prenom*/
+			$scope.ClientConnecterProperties ={
+					nom : ClientProperties.getNom(),
+					prenom : ClientProperties.getPrenom()
+			};
 			
 			/* recuperation la liste des demandes disponible*/
             $scope.listeDemandeDisponible = ListeDemandeDisponibleFactory
@@ -16,7 +23,7 @@ app.controller('demandesCloturesCtrl', [
 			});
 			/* recuperation la liste de demande creer par le client(id=idClient) */
 			$scope.demandesClotures = DemandesCloturesFactory.get({
-				id : "1"
+				id : ClientProperties.getId()
 			}, function(data) {
 				// selectionner le bouton radio
 				console.log(data);

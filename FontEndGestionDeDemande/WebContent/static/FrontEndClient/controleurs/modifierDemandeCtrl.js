@@ -15,42 +15,61 @@ app
 						'ListeDemandeDisponibleFactory',
 						'$routeParams',
 						'$location',
-						'$window',
+						'ClientProperties',
 						'$http',
 						function($scope, TypeDemandeFactory,
 								CreerDemandeFactory, CreerPrerequisFactory,
 								PrerequisFactory, DocumentsFactory, fileUpload,
 								CreerHistoriqueDemandeFactory,
-								CreerHistoriquePrerequisFactory,CreerHistoriqueDocumentFactory, ListeDemandeDisponibleFactory,
-								$routeParams, location, $window, $http) {
-							
-							/* recuperation la liste des demandes disponible*/
-				            $scope.listeDemandeDisponible = ListeDemandeDisponibleFactory
-							.select({}, function(data) {
+								CreerHistoriquePrerequisFactory,
+								CreerHistoriqueDocumentFactory,
+								ListeDemandeDisponibleFactory, $routeParams,
+								$location, ClientProperties, $http) {
+
+							/*
+							 * recuperation la liste de type de demande
+							 * disponible
+							 */
+							$scope.listeDemandeDisponible = ListeDemandeDisponibleFactory
+									.select({}, function(data) {
+									}, function(status) {
+										$location.path('/errors');
+									});
+
+							/* recuperation nom et prenom */
+							$scope.ClientConnecterProperties = {
+								nom : ClientProperties.getNom(),
+								prenom : ClientProperties.getPrenom()
+							};
+
+							/* recuperation la liste des demandes disponible */
+							$scope.typeDemande = TypeDemandeFactory.get({
+								id : $routeParams.idtype
+							}, function(data) {
 							}, function(status) {
 							});
 
 							/** ****** id demande********** */
 							$scope.idDemande = $routeParams.id;
-//				            $scope.idDemande = '1';
+							// $scope.idDemande = '1';
 							/** **************** */
 							$scope.options = [ 'homme', 'femme' ];
-							
-							/********document*************/
-							$scope.code = {									
-									myFile1 : 'vide',
-									myFile2 : 'vide',
-									myFile3 : 'vide',
-									myFile4 : 'vide',
-									myFile5 : 'vide'									
-								};
+
+							/** ******document************ */
+							$scope.code = {
+								myFile1 : 'vide',
+								myFile2 : 'vide',
+								myFile3 : 'vide',
+								myFile4 : 'vide',
+								myFile5 : 'vide'
+							};
 
 							/*
 							 * recuperation les prerequis de type de la demande
 							 * 
 							 */
 							$scope.prerequisDemande = PrerequisFactory.get({
-								idDmd : $scope.idDemande 
+								idDmd : $scope.idDemande
 							}, function(data) {
 								console.log("prerequis")
 								console.log(data);
@@ -67,12 +86,12 @@ app
 							 * 
 							 */
 							$scope.DocumentsDemande = DocumentsFactory.get({
-								idDmd : $scope.idDemande 
+								idDmd : $scope.idDemande
 							}, function(data) {
 								console.log(data)
 							}, function(status) {
 							});
-							
+
 							/*
 							 * Download //
 							 */
@@ -142,6 +161,8 @@ app
 							 * enregistrement la modification de la demande
 							 */
 							$scope.modifierDemande = function() {
+								console
+										.log(document.getElementById("Nom").value);
 
 								/* recuperation le date du systeme */
 								var today = new Date();
@@ -170,62 +191,72 @@ app
 										.creer(
 												historiqueDemande,
 												function(data) {
-													
-													
-													for (var typePrerequis=0; typePrerequis<$scope.prerequisDemande.length; typePrerequis++) {	
-														
-														if ((document
-																.getElementById($scope.prerequisDemande[typePrerequis][2]).value != "")
-																&& ($scope.prerequisDemande[typePrerequis][2] != 'Civilite')) {
 
-															console.log(document.getElementById($scope.prerequisDemande[typePrerequis][2]).value);
-															console.log($scope.prerequisDemande[typePrerequis][5]);
-															
-														var HistoriquePrerequis = {
-															historiqueDemande : {
-																id : data.id
-															},
-															prerequisDeDemande :{
-																id : $scope.prerequisDemande[typePrerequis][0]
-															}
+													for (var typePrerequis = 0; typePrerequis < $scope.prerequisDemande.length; typePrerequis++) {
+														console
+																.log(document
+																		.getElementById("Nom").value);
+														if (($scope.prerequisDemande[typePrerequis][2] != 'Civilite')
+																&& (document
+																		.getElementById($scope.prerequisDemande[typePrerequis][2]).value != "")) {
 
-														};
-														CreerHistoriquePrerequisFactory
-																.creer(
-																		HistoriquePrerequis,
-																		function() {
-																			console
-																					.log("success");
-																		},
-																		function() {
-																			console
-																					.log("erreur");
-																		});
-														var prerequis = {
+															console
+																	.log(document
+																			.getElementById($scope.prerequisDemande[typePrerequis][2]).value);
+															console
+																	.log($scope.prerequisDemande[typePrerequis][5]);
+
+															var HistoriquePrerequis = {
+																historiqueDemande : {
+																	id : data.id
+																},
+																prerequisDeDemande : {
+																	id : $scope.prerequisDemande[typePrerequis][0]
+																}
+
+															};
+															CreerHistoriquePrerequisFactory
+																	.creer(
+																			HistoriquePrerequis,
+																			function() {
+																				console
+																						.log("success");
+																			},
+																			function() {
+																				console
+																						.log("erreur");
+																			});
+															var prerequis = {
 																libelle : document
 																		.getElementById($scope.prerequisDemande[typePrerequis][2]).value,
 																dateCreation : $scope.today,
 																prerequisTypeDemande : {
-																	id :$scope.prerequisDemande[typePrerequis][6]
+																	id : $scope.prerequisDemande[typePrerequis][6]
 																},
 																demande : {
 																	id : $scope.idDemande
 																}
 															};
-															CreerPrerequisFactory.creer(prerequis,function() {
-																				console.log("success");
-																			},function() {
-																				console.log("erreur");
+															CreerPrerequisFactory
+																	.creer(
+																			prerequis,
+																			function() {
+																				console
+																						.log("success");
+																			},
+																			function() {
+																				console
+																						.log("erreur");
 																			});
-													}else if ((document
-															.getElementById("homme").checked )
-															&& ($scope.prerequisDemande[typePrerequis][2] == 'Civilite')
-															&& ($scope.prerequisDemande[typePrerequis][1] !='homme')) {
-														var HistoriquePrerequis = {
+														} else if ((document
+																.getElementById('homme').checked)
+																&& ($scope.prerequisDemande[typePrerequis][2] == 'Civilite')
+																&& ($scope.prerequisDemande[typePrerequis][1] != 'homme')) {
+															var HistoriquePrerequis = {
 																historiqueDemande : {
 																	id : data.id
 																},
-																prerequisDeDemande :{
+																prerequisDeDemande : {
 																	id : $scope.prerequisDemande[typePrerequis][0]
 																}
 
@@ -242,30 +273,36 @@ app
 																						.log("erreur");
 																			});
 															var prerequis = {
-																	libelle : "homme",
-																	dateCreation : $scope.today,
-																	prerequisTypeDemande : {
-																		id :$scope.prerequisDemande[typePrerequis][6]
-																	},
-																	demande : {
-																		id : $scope.idDemande
-																	}
-																};
-																CreerPrerequisFactory.creer(prerequis,function() {
-																					console.log("success");
-																				},function() {
-																					console.log("erreur");
-																				});
+																libelle : "homme",
+																dateCreation : $scope.today,
+																prerequisTypeDemande : {
+																	id : $scope.prerequisDemande[typePrerequis][6]
+																},
+																demande : {
+																	id : $scope.idDemande
+																}
+															};
+															CreerPrerequisFactory
+																	.creer(
+																			prerequis,
+																			function() {
+																				console
+																						.log("success");
+																			},
+																			function() {
+																				console
+																						.log("erreur");
+																			});
 
-													}else if ((document
-															.getElementById("femme").checked )
-															&& ($scope.prerequisDemande[typePrerequis][2] == 'Civilite')
-															&& ($scope.prerequisDemande[typePrerequis][1] !='femme')) {
-														var HistoriquePrerequis = {
+														} else if ((document
+																.getElementById("femme").checked)
+																&& ($scope.prerequisDemande[typePrerequis][2] == 'Civilite')
+																&& ($scope.prerequisDemande[typePrerequis][1] != 'femme')) {
+															var HistoriquePrerequis = {
 																historiqueDemande : {
 																	id : data.id
 																},
-																prerequisDeDemande :{
+																prerequisDeDemande : {
 																	id : $scope.prerequisDemande[typePrerequis][0]
 																}
 
@@ -282,60 +319,75 @@ app
 																						.log("erreur");
 																			});
 															var prerequis = {
-																	libelle : "femme",
-																	dateCreation : $scope.today,
-																	prerequisTypeDemande : {
-																		id :$scope.prerequisDemande[typePrerequis][6]
-																	},
-																	demande : {
-																		id : $scope.idDemande
-																	}
-																};
-																CreerPrerequisFactory.creer(prerequis,function() {
-																					console.log("success");
-																				},function() {
-																					console.log("erreur");
-																				});
+																libelle : "femme",
+																dateCreation : $scope.today,
+																prerequisTypeDemande : {
+																	id : $scope.prerequisDemande[typePrerequis][6]
+																},
+																demande : {
+																	id : $scope.idDemande
+																}
+															};
+															CreerPrerequisFactory
+																	.creer(
+																			prerequis,
+																			function() {
+																				console
+																						.log("success");
+																			},
+																			function() {
+																				console
+																						.log("erreur");
+																			});
 
+														}
 													}
-													}
-													// enregistrement des documents							
-													for (var documentD=0; documentD<$scope.DocumentsDemande.length; documentD++) {
-														if($scope.code['myFile'+ ((+documentD)+(+'1'))]!="vide" ){
-															/************/
+													// // enregistrement des
+													// documents
+													for (var documentD = 0; documentD < $scope.DocumentsDemande.length; documentD++) {
+														if ($scope.code['myFile'
+																+ ((+documentD) + (+'1'))] != "vide") {
+															/** ********* */
 															var HistoriqueDocumentDemande = {
-																	historiqueDemande : {
-																		id : data.id
-																	},
-																	documentDeDemande :{
-																		id : $scope.DocumentsDemande[documentD][0]
-																	}
+																historiqueDemande : {
+																	id : data.id
+																},
+																documentDeDemande : {
+																	id : $scope.DocumentsDemande[documentD][0]
+																}
 
-																};
+															};
 															CreerHistoriqueDocumentFactory
-																		.creer(
-																				HistoriqueDocumentDemande,
-																				function() {
-																					console
-																							.log("success");
-																				},
-																				function() {
-																					console
-																							.log("erreur");
-																				});
-															
-															/************/
-															var file = $scope.code['myFile'+ ((+documentD)+(+'1'))];
+																	.creer(
+																			HistoriqueDocumentDemande,
+																			function() {
+																				console
+																						.log("success");
+																			},
+																			function() {
+																				console
+																						.log("erreur");
+																			});
+
+															/** ********* */
+															var file = $scope.code['myFile'
+																	+ ((+documentD) + (+'1'))];
 															console.log("e");
 															console.dir(file);
 															var uploadUrl = "http://localhost:8081/stage/document/create";
-															fileUpload.uploadFileToUrl(file, uploadUrl,$scope.idDemande,
-																	$scope.DocumentsDemande[documentD][6]);
-//														
-													}												
+															fileUpload
+																	.uploadFileToUrl(
+																			file,
+																			uploadUrl,
+																			$scope.idDemande,
+																			$scope.DocumentsDemande[documentD][6]);
+															//														
+														}
 													}
-												}, function() {
+													$location.path('/demandes-en-cours');
+												}, function(status) {
+													$location.path('/erruer');
 												});
-
+								
 							};
 						} ]);

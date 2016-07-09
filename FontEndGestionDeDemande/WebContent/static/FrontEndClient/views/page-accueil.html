@@ -14,8 +14,7 @@
 					<span class="glyphicon glyphicon-log-in"></span>
 				</a>
 				<div class="image">
-					<img src="images/logo5.png"
-						class="   hidden-xs hidden-sm"
+					<img src="images/logo.png" class="   hidden-xs hidden-sm"
 						alt="Cinque Terre">
 
 					<h5 class="titre-accueil">Bienvenu sur le site de gestion des
@@ -26,16 +25,16 @@
 
 		</div>
 	</div>
-	
+
 	<div class="image">
-	
-	<img src="images/image.jpg"
-	style="margin:0px auto;display:block;margin-top: 90px;"
-		class="img-rounded img-circle-accueil   hidden-xs hidden-sm"
-		alt="Cinque Terre">
-		</div> 
+
+		<img src="images/image.jpg"
+			style="margin: 0px auto; display: block; margin-top: 90px;"
+			class="img-rounded img-circle-accueil   hidden-xs hidden-sm"
+			alt="Cinque Terre">
+	</div>
 	<!--*************************************************************************  -->
-	
+
 	<div Class="marginGD">
 		<div class=" navbar-header hidden-xs">
 
@@ -53,12 +52,12 @@
 							Administrative</button>
 						<div class="dropdown-menu">
 							<div ng-repeat="typeDemande in listeDemandeDisponible">
-							
+
 								<div ng-show="'{{typeDemande[2]}}'=='true'">
-								
-									 <div class="dropdown-divider"></div>
+
+									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="#/connexion"">
-										{{typeDemande[1]}}</a>								
+										{{typeDemande[1]}}</a>
 								</div>
 							</div>
 						</div>
@@ -69,9 +68,9 @@
 							Demandes</button>
 						<div class="dropdown-menu">
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item" href="#/connexion"">Demandes En Cours</a>
+							<a class="dropdown-item" href="#/connexion">Demandes En Cours</a>
 							<div class="divider"></div>
-							<a class="dropdown-item" href="#/connexion"">Demandes Cloturés</a>
+							<a class="dropdown-item" href="#/connexion">Demandes Cloturés</a>
 						</div>
 					</div>
 					<div class="btn-group bg-primary" role="group">
@@ -81,13 +80,38 @@
 							<span class="input-group-btn">
 								<button class="btn btn-default" type="button"
 									ng-click="viderChampRecheche()">
-									<span class="glyphicon glyphicon-remove-sign" style="color:#3071a9"></span>
+									<span class="glyphicon glyphicon-remove-sign"
+										style="color: #3071a9"></span>
 								</button>
-							</span> <input id="champRechecher" type="text" class="form-control"
-								placeholder="Recherchez" aria-describedby="basic-addon1">
+							</span>
+							<div>
+								<input id="champRechecher" type="text"
+									class="form-control dropdown-toggle" data-toggle="dropdown"
+									aria-haspopup="true" aria-expanded="false"
+									placeholder="Recherchez" aria-describedby="basic-addon1"
+									ng-model="recherche">
+								<div class="dropdown-menu dropdown-menu1">
+									<div class="dropdown-divider"></div>
+
+									<div
+										ng-repeat="typeDemande in listeDemandeDisponible | filter : recherche">
+										<div ng-show="'{{typeDemande[2]}}'=='true'">
+											<a class="dropdown-item" href="#/connexion">
+												{{typeDemande[1]}}</a>
+											<div class="divider"></div>
+										</div>
+									</div>
+									<div ng-repeat="demandes in mesDemandes | filter : recherche">
+										<a class="dropdown-item" href="#/connexion">
+											{{demandes.demande}}</a>
+										<div class="divider"></div>
+									</div>
+								</div>
+							</div>
+
 							<span class="input-group-btn">
 								<button class="btn btn-default" type="button">
-									<span class="glyphicon glyphicon-search" style="color:#3071a9"></span>
+									<span class="glyphicon glyphicon-search" style="color: #3071a9"></span>
 								</button>
 							</span>
 						</div>
@@ -111,30 +135,32 @@
 				<ul class="nav navbar-nav">
 					<li><a href="#/connexion"">Accueil</a></li>
 					<li class="dropdown"><a data-toggle="dropdown"
-						class="dropdown-toggle" href="#/connexion"">Demandes Administrative <b
-							class="caret"></b></a>
+						class="dropdown-toggle" href="#/connexion"">Demandes
+							Administrative <b class="caret"></b>
+					</a>
 
 						<div class="dropdown-menu">
 							<div ng-repeat="typeDemande in listeDemandeDisponible">
-							
+
 								<div ng-show="'{{typeDemande[2]}}'=='true'">
-								
-									 <div class="dropdown-divider"></div>
+
+									<div class="dropdown-divider"></div>
 									<a class="dropdown-item" href="#/connexion"">
-										{{typeDemande[1]}}</a>								
+										{{typeDemande[1]}}</a>
 								</div>
 							</div>
 						</div></li>
 					<li class="dropdown"><a data-toggle="dropdown"
-						class="dropdown-toggle" href="#/connexion"">Mes Demandes <b class="caret"></b></a>
+						class="dropdown-toggle" href="#/connexion"">Mes Demandes <b
+							class="caret"></b></a>
 						<div class="dropdown-menu">
 
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item-petit-ecran dropdown-item" href="#/connexion"">Demandes
-								En Cours</a>
+							<a class="dropdown-item-petit-ecran dropdown-item"
+								href="#/connexion"">Demandes En Cours</a>
 							<div class="dropdown-divider"></div>
-							<a class="dropdown-item-petit-ecran dropdown-item" href="#/connexion"">Demandes
-								Cloturés</a>
+							<a class="dropdown-item-petit-ecran dropdown-item"
+								href="#/connexion"">Demandes Cloturés</a>
 
 						</div></li>
 				</ul>
@@ -145,20 +171,24 @@
 		</div>
 
 	</div>
-	
+
 </header>
-<br><br><br><br><br>
-<div class="well" style="border:1px solid #999;
-	border-radius:8px;
-	box-shadow:0 0 10px #999;
-	color: black;">
-<div class="container">
-	<h2> zone est à remplir par le client.</h2>
-		<br> <br> <br> <br> <br> <br> <br> <br>
-</div>
+<br>
+<br>
+<br>
+<br>
+<br><br><br><br><br><br><br>
+<div class="well"
+	style="border: 1px solid #999; border-radius: 8px; box-shadow: 0 0 10px #999; color: black;">
+	<div class="container">
+		<h2 style="text-align: center;">Cette zone est à remplir par le
+			client.</h2>
+		<br> <br> <br> <br> <br> <br> <br>
+		<br>
+	</div>
 
 </div>
-<br>
+<br><br><br><br><br><br><br>
 <footer class="hidden-xs">
 
 	<div class="navbar-bottom navbar navbar-default  navbar-inverse">
@@ -166,22 +196,25 @@
 		<div class="container">
 			<div class="row">
 				<div class="navbar-row1-font col-lg-4">
-					<a class="navbar-row1-font" href="#/connexion"">Accueil</a><br> <a
-						class="navbar-row1-font" href="#/connexion"">Demandes Administratives</a><br>
-					<a class="navbar-row1-font" href="#/connexion"">Mes Demandes</a>
+					<a class="navbar-row1-font" href="#/connexion"">Accueil</a><br>
+					<a class="navbar-row1-font" href="#/connexion"">Demandes
+						Administratives</a><br> <a class="navbar-row1-font"
+						href="#/connexion"">Mes Demandes</a>
 				</div>
-		     	<div class="navbar-row2-font col-lg-5">
+				<div class="navbar-row2-font col-lg-5">
 					<div ng-repeat="typeDemande in listeDemandeDisponible">
 						<div ng-show="'{{typeDemande[2]}}'=='true'">
-							<a class="navbar-row2-font" href="#/connexion"">{{typeDemande[1]}}</a> <br>
+							<a class="navbar-row2-font" href="#/connexion"">{{typeDemande[1]}}</a>
+							<br>
 						</div>
 					</div>
-					
-				</div> 
-				
+
+				</div>
+
 				<div class="navbar-row1-font col-lg-3">
-					<a class="navbar-row1-font " href="#/connexion"">Demandes Cloturés</a><br>
-					<a class="navbar-row1-font" href="#/connexion"">Demandes Cloturés</a>
+					<a class="navbar-row1-font " href="#/connexion"">Demandes
+						Cloturés</a><br> <a class="navbar-row1-font" href="#/connexion"">Demandes
+						Cloturés</a>
 				</div>
 			</div>
 

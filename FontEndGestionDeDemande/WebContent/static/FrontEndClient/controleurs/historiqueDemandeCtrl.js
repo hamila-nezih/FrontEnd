@@ -9,9 +9,16 @@ app.controller('historiqueDemandeCtrl', [
 		'$location',
 		'$window',
 		'$http',
+		'ClientProperties',
 		function($scope, historiqueDemandeFactory, historiquePrerequisFactory,
 				historiqueDocumentsFactory, ListeDemandeDisponibleFactory, $routeParams, fileUpload,
-				$location, $window, $http) {
+				$location, $window, $http,ClientProperties) {
+			
+			/* recuperation nom et prenom*/
+			$scope.ClientConnecterProperties ={
+					nom : ClientProperties.getNom(),
+					prenom : ClientProperties.getPrenom()
+			};
 			
 			$scope.listeDemandeDisponible = ListeDemandeDisponibleFactory
 			.select({}, function(data) {

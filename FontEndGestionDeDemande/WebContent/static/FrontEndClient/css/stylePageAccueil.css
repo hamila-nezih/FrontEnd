@@ -1,5 +1,6 @@
 /****Debut $ionicPopup css****/
-h2 {
+
+.titre{
 	padding-top: 0px;
 	text-align: center;
 	color: #2a6496;
@@ -7,7 +8,7 @@ h2 {
 	font-weight: 300;
 	font-family: "times new roman", times, serif;
 	font-weight: 300;
-	margin-top: 100px;
+	margin-top: 110px;
 }
 .popup-head {
   background-color : #41ace9;
@@ -34,7 +35,14 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .dropdown-item {
-	margin-left: 10px;
+	margin-left: 10px;	
+}
+
+.dropdown-menu1 {
+    max-height: 150px;
+    max-width: 250px;
+    overflow: hidden;
+    overflow-y: auto;
 }
 
 .dropdown-menu .dropdown-item-petit-ecran {
@@ -138,7 +146,8 @@ h4 {
 
 .image .img-circle-accueil  {
 	text-align: center;
-	
+	display:block;
+	margin-top: 90px;
 	margin-left: 5px;
 	width: 450px;
 	height: 130px;
@@ -157,6 +166,16 @@ h4 {
 .image{
 	margin-top : 7px;
 } 
+.titre-nom {
+	margin-left : 330px;
+	display: inline;
+	text-align: center;
+	color: #ffffff;
+	font-size: 22px;
+	font-weight: 300;
+	font-family: "times new roman", times, serif;
+	font-weight: 300;
+}
 .titre-accueil {
 	margin-left : 120px;
 	display: inline;

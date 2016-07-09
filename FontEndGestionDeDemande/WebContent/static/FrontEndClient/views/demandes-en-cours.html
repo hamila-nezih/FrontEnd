@@ -3,23 +3,28 @@
 <header>
 	<!-- 	<meta charset="utf-8">
  -->
-	<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
 		<div class="container">
 
+
 			<div class="collpase navbar-collapse" id="button">
-				<a type="button" class=" pull-right btn btn-info" href="#/">Déconnecter
-					<span class="glyphicon glyphicon-log-out"></span>
-				</a> <a type="button" class=" pull-right btn btn-info"
-					href="#/page-accueil-connecter">Accueil <span
-					class=" glyphicon glyphicon-home"></span>
+				<a type="button" class=" pull-right btn btn-info"
+					href="#/" style="margin-top: 15px">Déconnecter <span
+					class="glyphicon glyphicon-log-out"></span></a> <a type="button"
+					class=" pull-right btn btn-info" href="#/gerer-compte" style="margin-top: 15px">gerer-compte
+					<span class="glyphicon glyphicon-cog"></span>
 				</a>
-				<h4 class=" pull-right">Bonjour Nom Prenom</h4>
-				<img src="images/logo.jpg" style="margin-left: 200px"
-					class="img-circle " alt="Cinque Terre">
+				<div class="image">
+					<img src="images/logo.png" class="   hidden-xs hidden-sm"
+						alt="Cinque Terre">
+
+					<h5 class="titre-nom">Bonjour&nbsp; {{ClientConnecterProperties.prenom}}&nbsp;&nbsp;{{ClientConnecterProperties.nom}} </h5>
+
+				</div>
 			</div>
+
 		</div>
 	</div>
-	
 	<h2 class="titre">
 		Bienvenu sur le site de gestion des demandes<br> Administratives
 	</h2>
@@ -59,15 +64,15 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr ng-repeat="demandeEncours in demandesEncours |orderBy:demandeEncours[2]">
+								<tr ng-repeat="demandeEncours in demandesEncours |orderBy:'-demandeEncours[3]'">
 									<td>{{ demandeEncours[0]}}</td>
 									<td>{{ demandeEncours[1]}}</td>
 									<td>{{ demandeEncours[2] | date:'MM/dd/yyyy'}}</td>
 									<td><span ng-show="'{{demandeEncours[1]}}'!='En cours de traitement'">
-									<a ng-click="editDemande(demandeEncours[3])" style="cursor:  pointer;">modifier&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+									<a ng-click="editDemande(demandeEncours[3],demandeEncours[4])" style="cursor:  pointer;">modifier
 									</a></span></td>
-									<td><a ng-click="showConfirm(demandeEncours[3])" style="cursor:  pointer;">
-											&nbsp;&nbsp;&nbsp;Annuler </a></td>
+									<td><a ng-click="showConfirm(demandeEncours[3],$event)" style="cursor:  pointer;">
+											Annuler </a></td>
 									
 								</tr>
 							</tbody>
@@ -79,7 +84,7 @@
 	</div>
 </div>
 
-<br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
 <footer class="hidden-xs">
 
 	<div class="navbar-bottom navbar navbar-default  navbar-inverse">

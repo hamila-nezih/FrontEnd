@@ -187,35 +187,3 @@ app.factory('CreerHistoriqueDocumentFactory', function($resource) {
 		}
 	})
 });
-app.service('fileUpload', ['$http','$location', function ($http,$location) {
-    this.uploadFileToUrl = function(files, uploadUrl, idD, idTypeDocument){
-         var file = new FormData();
-         console.log(files.name);
-        file.append('file', files);
-        file.append('name', files.name);  
-     $http.post(uploadUrl,file, {
-            transformRequest: angular.identity,
-            headers: {'Content-Type':undefined}
-        })
-        .success(function(){
-        })
-        .error(function(){
-      	 
-        }); 
-    }
-}]);
-app.directive('fileModel', ['$parse', function ($parse) {
-    return {
-        restrict: 'A',
-        link: function(scope, element, attrs) {
-            var model = $parse(attrs.fileModel);
-            var modelSetter = model.assign;
-            
-            element.bind('change', function(){
-                scope.$apply(function(){
-                    modelSetter(scope, element[0].files[0]);
-                });
-            });
-        }
-    };
-}]);

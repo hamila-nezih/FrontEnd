@@ -12,6 +12,15 @@
   border-left: 10px solid #398439;
 }
 /** The Magic **/
+.titre2{
+	padding-top: 0px;
+	color: #2a6496;
+	font-size: 22px;
+	font-weight: 300;
+	font-family: "times new roman", times, serif;
+	font-weight: 300;
+	
+}
 .btn-breadcrumb .btn:not(:last-child):after {
   content: " ";
   display: block;
@@ -115,16 +124,7 @@ h4{
 	height: 40px;
 	padding-bottom: 0px;
 }
-.titre {
-	padding-top: 0px;
-	text-align: center;
-	color: #3071a9;
-	font-size: 22px;
-	font-weight: 300;
-	font-family: "times new roman", times, serif;
-	font-weight: 300;
-	margin-top: 100px;
-}
+
 .asterisqueHide{
 	padding-top: 0px;
 	color: #0000ff;

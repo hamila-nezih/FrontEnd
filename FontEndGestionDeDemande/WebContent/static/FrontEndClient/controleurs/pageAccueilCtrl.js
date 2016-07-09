@@ -15,6 +15,13 @@ app.controller('pageAccueilCtrl', [
 			/* callback for ng-click 'viderChampRecheche': */
 			$scope.viderChampRecheche = function() {
 				document.getElementById("champRechecher").value = "";
+				$scope.recherche='';
 			}
+			/*mes demandes*/
+			$scope.mesDemandes = [
+					{demande : 'Demandes En Cours'},
+					{demande : 'Demandes Cloturés'}
+			]
+
 
 		} ]);

@@ -10,34 +10,49 @@ app
 						'ListeDemandeDisponibleFactory',
 						'$routeParams',
 						'$location',
-						'$window',
+						'ClientProperties',
 						'$http',
 						function($scope, TypeDemandeFactory,
 								CreerDemandeFactory, CreerPrerequisFactory,
-								fileUpload,ListeDemandeDisponibleFactory, $routeParams, $location, $window, $http) {
-							console.log($routeParams.id);
+								fileUpload,ListeDemandeDisponibleFactory, $routeParams, $location, ClientProperties, $http) {
+							
+
+							/* recuperation nom et prenom*/
+							$scope.ClientConnecterProperties ={
+									nom : ClientProperties.getNom(),
+									prenom : ClientProperties.getPrenom()
+							};
 							
 							/* recuperation la liste de type de demande disponible */
 							$scope.listeDemandeDisponible = ListeDemandeDisponibleFactory
 									.select({}, function(data) {}, function(status) {});
+							
+							/*
+							 * recuperation  type de demande 
+							 * 
+							 */
+							$scope.typeDemande = TypeDemandeFactory.get({
+								id : $routeParams.id
+							}, function(data) {
+								console.log(data);
+
+							}, function(status) {
+							});
+							
+							/*
+							 * 
+							 */
+							
 							$scope.code = {									
 									myFile1 : 'vide',
 									myFile2 : 'vide',
 									myFile3 : 'vide',
 									myFile4 : 'vide',
-									myFile5 : 'vide'									
+									myFile5 : 'vide',
+									myFile6 : 'vide',
+									myFile7 : 'vide',
+									myFile8 : 'vide'
 								};
-							/*
-							 * recuperation la liste de type de demande
-							 * disponible
-							 */
-							$scope.typeDemande = TypeDemandeFactory.get({
-								id : $routeParams.id
-							}, function(data) {
-								console.log($routeParams.id);
-
-							}, function(status) {
-							});
 							/*
 							 * callback for create new demande
 							 */
@@ -66,7 +81,7 @@ app
 										id : $scope.typeDemande.id
 									},
 									client : {
-										id : 1
+										id : ClientProperties.getId()
 									}
 								};
 								
@@ -156,10 +171,9 @@ app
 													
 													}
 													$location.path('/demandes-en-cours');
-
 												}, function(status) {
-													console.log("$erreur");
-												});
+													$location.path('/erruer');			
+													});
 
 								
 

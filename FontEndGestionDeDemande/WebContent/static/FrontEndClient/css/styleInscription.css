@@ -23,7 +23,7 @@
 }
 .panel-title{
 	text-align: center;
-	color : #0080ff;
+	color : #3071a9;
 	
 }
 .espaceMarginA {
@@ -38,7 +38,6 @@
 
 .collpase .pull-right{
 	margin-right: 30px;
-	margin-top: 22px;
 	color: #000000;
 }
 /**********************/
@@ -76,26 +75,6 @@
 	height: 120px;
 	border-top: 1px solid #178ACC;
 }
-
-.navbar-row1-font {
-	margin-top: 8px;
-	font-size: 20px;
-	font-weight: 300;
-	font-family: "times new roman", times, serif;
-	font-weight: 300;
-	color: white;
-}
-
-.navbar-row2-font {
-	margin-bottom: 5px;
-	margin-top: 5px;
-	font-size: 18px;
-	font-weight: 300;
-	font-family: "times new roman", times, serif;
-	font-weight: 300;
-	color: white;
-}
-
 .navbar {
 	background-image: linear-gradient(#54B4EB, #2FA4E7 60%, #1D9CE5);
 	background-repeat: no-repeat;
@@ -152,17 +131,6 @@ h4 {
 	margin-top: 15px;
 	color: #00ff80;
 }
-
-.image .img-circle-accueil  {
-	text-align: center;
-	
-	margin-left: 5px;
-	width: 700px;
-	height: 250px;
-	padding-bottom: 0px;
-	display: inline;
-}
-
 .image .img-circle-logo {	
 	margin-left: 5px;
 	width: 70px;
@@ -172,5 +140,5 @@ h4 {
 }
 
 .image{
-	margin-top : 15px;
+	margin-top : 10px;
 } 
